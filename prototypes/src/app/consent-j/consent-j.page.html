@@ -1,8 +1,412 @@
 <ion-content mode="ios">
 
-  <ion-list lines="none">
+  <ion-accordion-group>
+    <ion-accordion value="Requireds">
+      <ion-item slot="header" color="tertiary">
+        <ion-label>Requireds</ion-label>
+      </ion-item>
 
-    <ion-item color="tertiary" button class="ion-padding-bottom">
+      <ion-accordion-group value="required-groups" slot="content">
+
+        <ion-accordion value="required-groups">
+          <ion-item slot="header" color="danger">
+            <ion-label>Required groups</ion-label>
+          </ion-item>
+
+          <ion-list lines="none" slot="content">
+
+            <ion-item-divider class="ion-padding">
+              <ion-label>ข้อมูลจำเป็น</ion-label>
+            </ion-item-divider>
+
+            <ion-item color="tertiary" button class="ion-margin-bottom">
+              <ion-label>
+                <b>โปรดระบุที่อยู่ปัจจุบันของคุณ</b>
+              </ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary" button class="ion-margin-bottom">
+              <ion-label>
+                <b>ข้อมูลเกี่ยวกับ mana</b>
+              </ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary">
+              <ion-label><b>ข้อมูลที่ไม่เกี่ยวกับ mana</b></ion-label>
+            </ion-item>
+            <ion-item color="tertiary">
+              <ion-label>
+                <ion-radio-group name="number" value="1" mode="md">
+                  <ion-item color="tertiary">
+                    <ion-radio value="1" slot="start"></ion-radio>
+                    <ion-label>ตัวเลือกที่ 1</ion-label>
+                  </ion-item>
+                  <ion-item color="tertiary">
+                    <ion-radio value="2" slot="start"></ion-radio>
+                    <ion-label>ตัวเลือกที่ 2</ion-label>
+                  </ion-item>
+                </ion-radio-group>
+              </ion-label>
+            </ion-item>
+
+            <ion-item-divider class="ion-padding">
+              <ion-label>ข้อมูลอื่นๆ สามารถกรอกภายหลังได้</ion-label>
+            </ion-item-divider>
+
+            <ion-item color="tertiary" button class="ion-margin-bottom">
+              <ion-label><b>เวลาทำการ</b>
+                <ion-text color="medium">
+                  <h3>&nbsp;</h3>
+                </ion-text>
+                <ion-text color="medium">คุณยังไม่ระบุเวลาทำการ</ion-text>
+              </ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary">
+              <ion-label><b>เวลาทำการ</b></ion-label>
+            </ion-item>
+            <ion-item color="tertiary" class="ion-margin-bottom">
+              <ion-input type="text" placeholder="คุณยังไม่ระบุเวลาทำการ"></ion-input>
+            </ion-item>
+
+          </ion-list>
+
+        </ion-accordion>
+
+        <ion-accordion value="required-fields-1">
+          <ion-item slot="header" color="danger">
+            <ion-label>Required fields 1 (Thai-text)</ion-label>
+          </ion-item>
+
+          <ion-list lines="none" slot="content">
+
+            <ion-item color="tertiary" button class="ion-margin-bottom">
+              <ion-label>
+                <b>โปรดระบุที่อยู่ปัจจุบันของคุณ</b>
+                <ion-text color="medium">
+                  <h3>ต้องระบุ</h3>
+                </ion-text>
+              </ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary" button class="ion-margin-bottom">
+              <ion-label>
+                <b>ข้อมูลเกี่ยวกับ mana</b>
+                <ion-text color="medium">
+                  <h3>ต้องระบุ</h3>
+                </ion-text>
+              </ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary">
+              <ion-label>
+                <b>ข้อมูลที่ไม่เกี่ยวกับ mana</b>
+                <ion-text color="medium">
+                  <h3>ต้องระบุ</h3>
+                </ion-text>
+              </ion-label>
+            </ion-item>
+            <ion-item color="tertiary" class="ion-margin-bottom">
+              <ion-label>
+                <ion-radio-group name="number" value="1" mode="md">
+                  <ion-item color="tertiary">
+                    <ion-radio value="1" slot="start"></ion-radio>
+                    <ion-label>ตัวเลือกที่ 1</ion-label>
+                  </ion-item>
+                  <ion-item color="tertiary">
+                    <ion-radio value="2" slot="start"></ion-radio>
+                    <ion-label>ตัวเลือกที่ 2</ion-label>
+                  </ion-item>
+                </ion-radio-group>
+              </ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary" button class="ion-margin-bottom">
+              <ion-label><b>เวลาทำการ</b>
+                <ion-text color="medium">
+                  <h3>ระบุหรือไม่ก็ได้</h3>
+                </ion-text>
+                <ion-text color="medium">คุณยังไม่ระบุเวลาทำการ</ion-text>
+              </ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary">
+              <ion-label><b>เวลาทำการ</b>
+                <ion-text color="medium">
+                  <h3>ระบุหรือไม่ก็ได้</h3>
+                </ion-text>
+              </ion-label>
+            </ion-item>
+            <ion-item color="tertiary" class="ion-margin-bottom">
+              <ion-input type="text" placeholder="คุณยังไม่ระบุเวลาทำการ"></ion-input>
+            </ion-item>
+
+          </ion-list>
+
+        </ion-accordion>
+
+        <ion-accordion value="required-fields-2">
+          <ion-item slot="header" color="danger">
+            <ion-label>Required fields 2 (Eng-text v1)</ion-label>
+          </ion-item>
+
+          <ion-list lines="none" slot="content">
+
+            <ion-item color="tertiary" button class="ion-margin-bottom">
+              <ion-label>
+                <b>โปรดระบุที่อยู่ปัจจุบันของคุณ</b>
+                <ion-text color="danger">
+                  <h3>Required</h3>
+                </ion-text>
+              </ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary" button class="ion-margin-bottom">
+              <ion-label>
+                <b>ข้อมูลเกี่ยวกับ mana</b>
+                <ion-text color="danger">
+                  <h3>Required</h3>
+                </ion-text>
+              </ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary">
+              <ion-label>
+                <b>ข้อมูลที่ไม่เกี่ยวกับ mana</b>
+                <ion-text color="danger">
+                  <h3>Required</h3>
+                </ion-text>
+              </ion-label>
+            </ion-item>
+            <ion-item color="tertiary" class="ion-margin-bottom">
+              <ion-label>
+                <ion-radio-group name="number" value="1" mode="md">
+                  <ion-item color="tertiary">
+                    <ion-radio value="1" slot="start"></ion-radio>
+                    <ion-label>ตัวเลือกที่ 1</ion-label>
+                  </ion-item>
+                  <ion-item color="tertiary">
+                    <ion-radio value="2" slot="start"></ion-radio>
+                    <ion-label>ตัวเลือกที่ 2</ion-label>
+                  </ion-item>
+                </ion-radio-group>
+              </ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary" button class="ion-margin-bottom">
+              <ion-label><b>เวลาทำการ</b>
+                <ion-text color="medium">
+                  <h3>&nbsp;</h3>
+                </ion-text>
+                <ion-text color="medium">คุณยังไม่ระบุเวลาทำการ</ion-text>
+              </ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary">
+              <ion-label><b>เวลาทำการ</b>
+              </ion-label>
+            </ion-item>
+            <ion-item color="tertiary" class="ion-margin-bottom">
+              <ion-input type="text" placeholder="คุณยังไม่ระบุเวลาทำการ"></ion-input>
+            </ion-item>
+
+          </ion-list>
+
+        </ion-accordion>
+
+        <ion-accordion value="required-fields-3">
+          <ion-item slot="header" color="danger">
+            <ion-label>Required fields 3 (Eng-text v2)</ion-label>
+          </ion-item>
+
+          <ion-list lines="none" slot="content">
+
+            <ion-item color="tertiary" button class="ion-margin-bottom">
+              <ion-label>
+                <b>โปรดระบุที่อยู่ปัจจุบันของคุณ</b>
+                <ion-text color="danger">&nbsp;Required</ion-text>
+              </ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary" button class="ion-margin-bottom">
+              <ion-label>
+                <b>ข้อมูลเกี่ยวกับ mana</b>
+                <ion-text color="danger">&nbsp;Required</ion-text>
+              </ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary">
+              <ion-label>
+                <b>ข้อมูลที่ไม่เกี่ยวกับ mana</b>
+                <ion-text color="danger">&nbsp;Required</ion-text>
+              </ion-label>
+            </ion-item>
+            <ion-item color="tertiary" class="ion-margin-bottom">
+              <ion-label>
+                <ion-radio-group name="number" value="1" mode="md">
+                  <ion-item color="tertiary">
+                    <ion-radio value="1" slot="start"></ion-radio>
+                    <ion-label>ตัวเลือกที่ 1</ion-label>
+                  </ion-item>
+                  <ion-item color="tertiary">
+                    <ion-radio value="2" slot="start"></ion-radio>
+                    <ion-label>ตัวเลือกที่ 2</ion-label>
+                  </ion-item>
+                </ion-radio-group>
+              </ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary" button class="ion-margin-bottom">
+              <ion-label><b>เวลาทำการ</b>
+                <ion-text color="medium">
+                  <h3>&nbsp;</h3>
+                </ion-text>
+                <ion-text color="medium">คุณยังไม่ระบุเวลาทำการ</ion-text>
+              </ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary">
+              <ion-label><b>เวลาทำการ</b>
+              </ion-label>
+            </ion-item>
+            <ion-item color="tertiary" class="ion-margin-bottom">
+              <ion-input type="text" placeholder="คุณยังไม่ระบุเวลาทำการ"></ion-input>
+            </ion-item>
+
+          </ion-list>
+
+        </ion-accordion>
+
+        <ion-accordion value="required-fields-4">
+          <ion-item slot="header" color="danger">
+            <ion-label>Required fields 4 (*)</ion-label>
+          </ion-item>
+
+          <ion-list lines="none" slot="content">
+
+            <ion-item color="tertiary" button class="ion-margin-bottom">
+              <ion-label>
+                <b>โปรดระบุที่อยู่ปัจจุบันของคุณ</b>
+                <ion-text color="danger">&nbsp;*</ion-text>
+              </ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary" button class="ion-margin-bottom">
+              <ion-label>
+                <b>ข้อมูลเกี่ยวกับ mana</b>
+                <ion-text color="danger">&nbsp;*</ion-text>
+              </ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary">
+              <ion-label>
+                <b>ข้อมูลที่ไม่เกี่ยวกับ mana</b>
+                <ion-text color="danger">&nbsp;*</ion-text>
+              </ion-label>
+            </ion-item>
+            <ion-item color="tertiary" class="ion-margin-bottom">
+              <ion-label>
+                <ion-radio-group name="number" value="1" mode="md">
+                  <ion-item color="tertiary">
+                    <ion-radio value="1" slot="start"></ion-radio>
+                    <ion-label>ตัวเลือกที่ 1</ion-label>
+                  </ion-item>
+                  <ion-item color="tertiary">
+                    <ion-radio value="2" slot="start"></ion-radio>
+                    <ion-label>ตัวเลือกที่ 2</ion-label>
+                  </ion-item>
+                </ion-radio-group>
+              </ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary" button class="ion-margin-bottom">
+              <ion-label><b>เวลาทำการ</b>
+                <ion-text color="medium">
+                  <h3>&nbsp;</h3>
+                </ion-text>
+                <ion-text color="medium">คุณยังไม่ระบุเวลาทำการ</ion-text>
+              </ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary">
+              <ion-label><b>เวลาทำการ</b>
+              </ion-label>
+            </ion-item>
+            <ion-item color="tertiary" class="ion-margin-bottom">
+              <ion-input type="text" placeholder="คุณยังไม่ระบุเวลาทำการ"></ion-input>
+            </ion-item>
+
+          </ion-list>
+
+        </ion-accordion>
+
+        <ion-accordion value="required-fields-5">
+          <ion-item slot="header" color="danger">
+            <ion-label>Required fields 5 (icon)</ion-label>
+          </ion-item>
+
+          <ion-list lines="none" slot="content">
+
+            <ion-item color="tertiary" button class="ion-margin-bottom">
+              <ion-icon name="alert-circle-outline" slot="start" color="danger"></ion-icon>
+              <ion-label><b>โปรดระบุที่อยู่ปัจจุบันของคุณ</b></ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary" button class="ion-margin-bottom">
+              <ion-icon name="alert-circle-outline" slot="start" color="danger"></ion-icon>
+              <ion-label><b>ข้อมูลเกี่ยวกับ mana</b></ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary">
+              <ion-icon name="alert-circle-outline" slot="start" color="danger"></ion-icon>
+              <ion-label><b>ข้อมูลที่ไม่เกี่ยวกับ mana</b></ion-label>
+            </ion-item>
+            <ion-item color="tertiary" class="ion-margin-bottom">
+              <ion-label>
+                <ion-radio-group name="number" value="1" mode="md">
+                  <ion-item color="tertiary">
+                    <ion-radio value="1" slot="start"></ion-radio>
+                    <ion-label>ตัวเลือกที่ 1</ion-label>
+                  </ion-item>
+                  <ion-item color="tertiary">
+                    <ion-radio value="2" slot="start"></ion-radio>
+                    <ion-label>ตัวเลือกที่ 2</ion-label>
+                  </ion-item>
+                </ion-radio-group>
+              </ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary" button class="ion-margin-bottom">
+              <ion-label><b>เวลาทำการ</b>
+                <ion-text color="medium">
+                  <h3>&nbsp;</h3>
+                </ion-text>
+                <ion-text color="medium">คุณยังไม่ระบุเวลาทำการ</ion-text>
+              </ion-label>
+            </ion-item>
+
+            <ion-item color="tertiary">
+              <ion-label><b>เวลาทำการ</b>
+              </ion-label>
+            </ion-item>
+            <ion-item color="tertiary" class="ion-margin-bottom">
+              <ion-input type="text" placeholder="คุณยังไม่ระบุเวลาทำการ"></ion-input>
+            </ion-item>
+
+          </ion-list>
+
+        </ion-accordion>
+
+      </ion-accordion-group>
+
+    </ion-accordion>
+  </ion-accordion-group>
+
+
+  <!-- Templates -->
+  <!-- <ion-list lines="none">
+
+    <ion-item color="tertiary" button class="ion-margin-bottom">
       <ion-label>
         <b>โปรดระบุที่อยู่ปัจจุบันของคุณ</b>
         <ion-text color="medium">
@@ -16,7 +420,7 @@
       </ion-note>
     </ion-item>
 
-    <ion-item color="tertiary" button class="ion-padding-bottom">
+    <ion-item color="tertiary" button class="ion-margin-bottom">
       <ion-label>
         <b>ข้อมูลเกี่ยวกับ mana</b>
         <ion-text color="medium">
@@ -30,25 +434,89 @@
       </ion-note>
     </ion-item>
 
-    <ion-item color="tertiary" class="ion-padding-bottom">
+    <ion-item color="tertiary">
       <ion-label>
         <b>ข้อมูลที่ไม่เกี่ยวกับ mana</b>
         <ion-text color="medium">
-          <ion-radio-group name="number" value="1" mode="md">
-            <ion-item color="tertiary">
-              <ion-radio value="1" slot="start"></ion-radio>
-              <ion-label>ตัวเลือกที่ 1</ion-label>
-            </ion-item>
-            <ion-item color="tertiary">
-              <ion-radio value="2" slot="start"></ion-radio>
-              <ion-label>ตัวเลือกที่ 2</ion-label>
-            </ion-item>
-          </ion-radio-group>
+          <h3>ต้องระบุ</h3>
         </ion-text>
       </ion-label>
     </ion-item>
+    <ion-item color="tertiary" class="ion-margin-bottom">
+      <ion-label>
+        <ion-radio-group name="number" value="1" mode="md">
+          <ion-item color="tertiary">
+            <ion-radio value="1" slot="start"></ion-radio>
+            <ion-label>ตัวเลือกที่ 1</ion-label>
+          </ion-item>
+          <ion-item color="tertiary">
+            <ion-radio value="2" slot="start"></ion-radio>
+            <ion-label>ตัวเลือกที่ 2</ion-label>
+          </ion-item>
+        </ion-radio-group>
+      </ion-label>
+    </ion-item>
 
-  </ion-list>
+    <ion-item color="tertiary">
+      <ion-label>
+        <b>ข้อมูลที่ไม่เกี่ยวกับ mana</b>
+        <ion-text color="danger">
+          คุณยังไม่เลือกข้อตกลง
+        </ion-text>
+        <ion-text color="medium">
+          <h3>ต้องระบุ</h3>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item color="tertiary" class="ion-margin-bottom">
+      <ion-label>
+        <ion-radio-group name="number" mode="md">
+          <ion-item color="tertiary">
+            <ion-radio value="1" slot="start"></ion-radio>
+            <ion-label>ตัวเลือกที่ 1</ion-label>
+          </ion-item>
+          <ion-item color="tertiary">
+            <ion-radio value="2" slot="start"></ion-radio>
+            <ion-label>ตัวเลือกที่ 2</ion-label>
+          </ion-item>
+        </ion-radio-group>
+      </ion-label>
+    </ion-item>
 
+    <ion-item color="tertiary" button class="ion-margin-bottom">
+      <ion-label><b>เวลาทำการ</b>
+        <ion-text color="medium">
+          <h3>ต้องระบุ</h3>
+        </ion-text>
+        <ion-text color="primary">คุณได้ระบุเวลาทำการแล้ว</ion-text>
+      </ion-label>
+    </ion-item>
+
+    <ion-item color="tertiary">
+      <ion-label><b>เวลาทำการ</b>
+        <ion-text color="danger">
+          ข้อมูลไม่ถูกต้อง
+        </ion-text>
+        <ion-text color="medium">
+          <h3>ต้องระบุ</h3>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item color="tertiary" class="ion-margin-bottom">
+      <ion-input type="text" placeholder="คุณยังไม่ระบุเวลาทำการ"></ion-input>
+    </ion-item>
+
+    <ion-item color="tertiary">
+      <ion-label><b>เวลาทำการ</b>
+        <ion-text color="medium">
+          <h3>ต้องระบุ</h3>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item color="tertiary" class="ion-margin-bottom">
+      <ion-input type="text" placeholder="คุณยังไม่ระบุเวลาทำการ"></ion-input>
+    </ion-item>
+
+  </ion-list> -->
 
 </ion-content>
