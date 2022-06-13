@@ -12,29 +12,44 @@
     </ion-card>
   </ion-list>
 
-  <ion-list color="tertiary">
-    <ion-item color="tertiary" lines="none">
+  <ion-list lines="none" routerLink="/consent-j">
+
+    <ion-item color="tertiary">
       <ion-label><b>การขอข้อมูล</b></ion-label>
-      <ion-label slot="end" color="primary" routerLink="/consent-j">+ใส่ข้อมูล</ion-label>
     </ion-item>
 
-    <ion-item color="tertiary" lines="none">
+    <ion-item color="tertiary" button>
+      <ion-icon name="ellipse-outline" color="primary" slot="start"></ion-icon>
+      <ion-label>
+        ชื่อนามสกุล
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item color="tertiary" button>
       <ion-icon name="checkmark-circle-outline" color="primary" slot="start"></ion-icon>
-      <ion-label>ที่อยู่ปัจจุบัน (Required)</ion-label>
+      <ion-label>
+        วันเดือนปีเกิด
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
     </ion-item>
-
-    <ion-item color="tertiary" lines="none">
+    <ion-item color="tertiary" button>
+      <ion-icon name="alert-circle-outline" color="danger" slot="start"></ion-icon>
+      <ion-label>
+        เบอร์โทรศัพท์
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item color="tertiary" button>
+      <ion-icon name="ellipse-outline" color="primary" slot="start"></ion-icon>
+      <ion-label>กรุ๊ปเลือด</ion-label>
+    </ion-item>
+    <ion-item color="tertiary" button>
       <ion-icon name="checkmark-circle-outline" color="primary" slot="start"></ion-icon>
-      <ion-label>ข้อมูลผู้ใช้ mana (Required)</ion-label>
+      <ion-label>น้ำหนัก</ion-label>
     </ion-item>
-
-    <ion-item color="tertiary" lines="none">
-      <ion-icon name="checkmark-circle-outline" color="medium" slot="start"></ion-icon>
-      <ion-label color="medium">ข้อมูลทั่วไป</ion-label>
-    </ion-item>
-
+    
     <ion-item color="tertiary" class="ion-text-center" lines="none">
-      <ion-label color="primary">ข้อมูลสมบูรณ์แล้ว (2/3)</ion-label>
+      <ion-label color="primary">ข้อมูลสมบูรณ์แล้ว (1/3)</ion-label>
     </ion-item>
 
   </ion-list>
