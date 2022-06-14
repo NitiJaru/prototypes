@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { format, parseISO, } from 'date-fns';
+import { th } from 'date-fns/esm/locale'
 
 @Component({
   selector: 'app-consent-j',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsentJPage implements OnInit {
 
+  public isDisplayIconMode: boolean = false;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public updateDisplayMode(event) {
+    this.isDisplayIconMode = event.detail.value == "true";
+  }
+
+  public formatDate(value: string) {
+    return format(parseISO(value), 'dd MMMM yyyy', { locale: th });
   }
 
 }

@@ -1,944 +1,701 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item lines="none">
+      <ion-label>การแสดง Input Status</ion-label>
+      <ion-select value="false" placeholder="เลือกรายการ" interface="popover" (ionChange)="updateDisplayMode($event)">
+        <ion-select-option value="false">ไม่แสดง Icon</ion-select-option>
+        <ion-select-option value="true">แสดง Icon</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
 <ion-content mode="ios">
 
-  <ion-accordion-group>
+  <ion-accordion-group [multiple]="true">
 
-    <ion-accordion value="Requireds">
-      <ion-item slot="header" color="tertiary">
-        <ion-label>Requireds</ion-label>
+    <ion-accordion value="1">
+      <ion-item slot="header" color="danger">
+        <ion-label>1. Text</ion-label>
       </ion-item>
 
-      <ion-accordion-group slot="content">
+      <ion-list slot="content" lines="none">
+        <ion-item color="tertiary" class="ion-margin-bottom">
+          <ion-icon *ngIf="isDisplayIconMode" name="ellipse-outline" slot="start" color="primary"></ion-icon>
+          <ion-label position="stacked">
+            <b>เบอร์โทร</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input type="text" placeholder="คุณยังไม่ระบุเบอร์โทร"></ion-input>
+        </ion-item>
+
+        <ion-item color="tertiary" class="ion-margin-bottom">
+          <ion-icon name="alert-circle-outline" slot="start" color="danger" id="trigger-button-1"></ion-icon>
+          <ion-label position="stacked">
+            <b>เบอร์โทร</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-popover trigger="trigger-button-1">
+            <ng-template>
+              <ion-content class="ion-padding">
+                <ion-label color="danger">ข้อมูลไม่ถูกต้อง</ion-label>
+              </ion-content>
+            </ng-template>
+          </ion-popover>
+          <ion-input type="text" placeholder="คุณยังไม่ระบุเบอร์โทร" value="085"></ion-input>
+        </ion-item>
+
+        <ion-item color="tertiary" class="ion-margin-bottom">
+          <ion-icon *ngIf="isDisplayIconMode" name="checkmark-circle-outline" slot="start" color="primary"></ion-icon>
+          <ion-label position="stacked">
+            <b>เบอร์โทร</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input type="text" placeholder="คุณยังไม่ระบุเบอร์โทร" value="0800000000"></ion-input>
+        </ion-item>
+      </ion-list>
 
-        <ion-accordion value="required-groups">
-          <ion-item slot="header" color="danger">
-            <ion-label>Required groups</ion-label>
-          </ion-item>
-
-          <ion-list lines="none" slot="content">
-
-            <ion-item-divider class="ion-padding">
-              <ion-label>ข้อมูลจำเป็น</ion-label>
-            </ion-item-divider>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label>
-                <b>โปรดระบุที่อยู่ปัจจุบันของคุณ</b>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label>
-                <b>ข้อมูลเกี่ยวกับ mana</b>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label><b>สถานที่ตั้ง</b>
-                <ion-text color="medium">
-                  <h3>&nbsp;</h3>
-                </ion-text>
-                <ion-text color="medium">คุณยังไม่ระบุสถานที่ตั้ง</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary">
-              <ion-label><b>ข้อมูลที่ไม่เกี่ยวกับ mana</b></ion-label>
-            </ion-item>
-            <ion-item color="tertiary" class="ion-margin-bottom">
-              <ion-label>
-                <ion-radio-group name="number" value="1" mode="md">
-                  <ion-item color="tertiary">
-                    <ion-radio value="1" slot="start"></ion-radio>
-                    <ion-label>ตัวเลือกที่ 1</ion-label>
-                  </ion-item>
-                  <ion-item color="tertiary">
-                    <ion-radio value="2" slot="start"></ion-radio>
-                    <ion-label>ตัวเลือกที่ 2</ion-label>
-                  </ion-item>
-                </ion-radio-group>
-              </ion-label>
-            </ion-item>
-
-            <ion-card color="tertiary" class="ion-margin-bottom">
-              <ion-item color="tertiary">
-                <ion-label>
-                  <b>ขออนุญาตเชื่อมระบบกับร้านของคุณ</b>
-                </ion-label>
-              </ion-item>
-              <ion-card-content class="ion-padding">
-                <div class="ion-text-center">
-                  <ion-label>
-                    <ion-icon name="pencil-outline"></ion-icon>
-                    <b>ใส่ข้อมูล</b>
-                  </ion-label>
-                </div>
-              </ion-card-content>
-            </ion-card>
-
-            <ion-item-divider class="ion-padding">
-              <ion-label>ข้อมูลอื่นๆ สามารถกรอกภายหลังได้</ion-label>
-            </ion-item-divider>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label><b>เวลาทำการ</b>
-                <ion-text color="medium">
-                  <h3>&nbsp;</h3>
-                </ion-text>
-                <ion-text color="medium">คุณยังไม่ระบุเวลาทำการ</ion-text>
-              </ion-label>
-            </ion-item>
-
-
-            <ion-item color="tertiary">
-              <ion-label><b>ชื่อ</b></ion-label>
-            </ion-item>
-            <ion-item color="tertiary" class="ion-margin-bottom">
-              <ion-input type="text" placeholder="คุณยังไม่ระบุชื่อ"></ion-input>
-            </ion-item>
-
-          </ion-list>
-
-        </ion-accordion>
-
-        <ion-accordion value="required-fields-1">
-          <ion-item slot="header" color="danger">
-            <ion-label>Required fields 1 (Thai-text)</ion-label>
-          </ion-item>
-
-          <ion-list lines="none" slot="content">
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label>
-                <b>โปรดระบุที่อยู่ปัจจุบันของคุณ</b>
-                <ion-text color="medium">
-                  <h3>ต้องระบุ</h3>
-                </ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label>
-                <b>ข้อมูลเกี่ยวกับ mana</b>
-                <ion-text color="medium">
-                  <h3>ต้องระบุ</h3>
-                </ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label><b>สถานที่ตั้ง</b>
-                <ion-text color="medium">
-                  <h3>ต้องระบุ</h3>
-                </ion-text>
-                <ion-text color="medium">คุณยังไม่ระบุสถานที่ตั้ง</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary">
-              <ion-label>
-                <b>ข้อมูลที่ไม่เกี่ยวกับ mana</b>
-                <ion-text color="medium">
-                  <h3>ต้องระบุ</h3>
-                </ion-text>
-              </ion-label>
-            </ion-item>
-            <ion-item color="tertiary" class="ion-margin-bottom">
-              <ion-label>
-                <ion-radio-group name="number" value="1" mode="md">
-                  <ion-item color="tertiary">
-                    <ion-radio value="1" slot="start"></ion-radio>
-                    <ion-label>ตัวเลือกที่ 1</ion-label>
-                  </ion-item>
-                  <ion-item color="tertiary">
-                    <ion-radio value="2" slot="start"></ion-radio>
-                    <ion-label>ตัวเลือกที่ 2</ion-label>
-                  </ion-item>
-                </ion-radio-group>
-              </ion-label>
-            </ion-item>
-
-            <div class="ion-margin-bottom">
-              <ion-card color="tertiary" class="ion-margin-bottom">
-                <ion-item color="tertiary">
-                  <ion-label>
-                    <b>ขออนุญาตเชื่อมระบบกับร้านของคุณ</b>
-                    <ion-text color="medium">
-                      <h3>ต้องระบุ</h3>
-                    </ion-text>
-                  </ion-label>
-                </ion-item>
-                <ion-card-content class="ion-padding">
-                  <div class="ion-text-center">
-                    <ion-label>
-                      <ion-icon name="pencil-outline"></ion-icon>
-                      <b>ใส่ข้อมูล</b>
-                    </ion-label>
-                  </div>
-                </ion-card-content>
-              </ion-card>
-            </div>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label><b>เวลาทำการ</b>
-                <ion-text color="medium">
-                  <h3>ระบุหรือไม่ก็ได้</h3>
-                </ion-text>
-                <ion-text color="medium">คุณยังไม่ระบุเวลาทำการ</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary">
-              <ion-label><b>ชื่อ</b>
-                <ion-text color="medium">
-                  <h3>ระบุหรือไม่ก็ได้</h3>
-                </ion-text>
-              </ion-label>
-            </ion-item>
-            <ion-item color="tertiary" class="ion-margin-bottom">
-              <ion-input type="text" placeholder="คุณยังไม่ระบุชื่อ"></ion-input>
-            </ion-item>
-
-          </ion-list>
-
-        </ion-accordion>
-
-        <ion-accordion value="required-fields-2">
-          <ion-item slot="header" color="danger">
-            <ion-label>Required fields 2 (Eng-text v1)</ion-label>
-          </ion-item>
-
-          <ion-list lines="none" slot="content">
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label>
-                <b>โปรดระบุที่อยู่ปัจจุบันของคุณ</b>
-                <ion-text color="danger">
-                  <h3>Required</h3>
-                </ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label>
-                <b>ข้อมูลเกี่ยวกับ mana</b>
-                <ion-text color="danger">
-                  <h3>Required</h3>
-                </ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label><b>สถานที่ตั้ง</b>
-                <ion-text color="danger">
-                  <h3>Required</h3>
-                </ion-text>
-                <ion-text color="medium">คุณยังไม่ระบุสถานที่ตั้ง</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary">
-              <ion-label>
-                <b>ข้อมูลที่ไม่เกี่ยวกับ mana</b>
-                <ion-text color="danger">
-                  <h3>Required</h3>
-                </ion-text>
-              </ion-label>
-            </ion-item>
-            <ion-item color="tertiary" class="ion-margin-bottom">
-              <ion-label>
-                <ion-radio-group name="number" value="1" mode="md">
-                  <ion-item color="tertiary">
-                    <ion-radio value="1" slot="start"></ion-radio>
-                    <ion-label>ตัวเลือกที่ 1</ion-label>
-                  </ion-item>
-                  <ion-item color="tertiary">
-                    <ion-radio value="2" slot="start"></ion-radio>
-                    <ion-label>ตัวเลือกที่ 2</ion-label>
-                  </ion-item>
-                </ion-radio-group>
-              </ion-label>
-            </ion-item>
-
-            <div class="ion-margin-bottom">
-              <ion-card color="tertiary" class="ion-margin-bottom">
-                <ion-item color="tertiary">
-                  <ion-label>
-                    <b>ขออนุญาตเชื่อมระบบกับร้านของคุณ</b>
-                    <ion-text color="danger">
-                      <h3>Required</h3>
-                    </ion-text>
-                  </ion-label>
-                </ion-item>
-                <ion-card-content class="ion-padding">
-                  <div class="ion-text-center">
-                    <ion-label>
-                      <ion-icon name="pencil-outline"></ion-icon>
-                      <b>ใส่ข้อมูล</b>
-                    </ion-label>
-                  </div>
-                </ion-card-content>
-              </ion-card>
-            </div>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label><b>เวลาทำการ</b>
-                <ion-text color="medium">
-                  <h3>&nbsp;</h3>
-                </ion-text>
-                <ion-text color="medium">คุณยังไม่ระบุเวลาทำการ</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary">
-              <ion-label><b>ชื่อ</b>
-              </ion-label>
-            </ion-item>
-            <ion-item color="tertiary" class="ion-margin-bottom">
-              <ion-input type="text" placeholder="คุณยังไม่ระบุชื่อ"></ion-input>
-            </ion-item>
-
-          </ion-list>
-
-        </ion-accordion>
-
-        <ion-accordion value="required-fields-3">
-          <ion-item slot="header" color="danger">
-            <ion-label>Required fields 3 (Eng-text v2)</ion-label>
-          </ion-item>
-
-          <ion-list lines="none" slot="content">
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label>
-                <b>โปรดระบุที่อยู่ปัจจุบันของคุณ</b>
-                <ion-text color="danger">&nbsp;Required</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label>
-                <b>ข้อมูลเกี่ยวกับ mana</b>
-                <ion-text color="danger">&nbsp;Required</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label><b>สถานที่ตั้ง</b>
-                <ion-text color="danger">&nbsp;Required</ion-text>
-                <ion-text color="medium">
-                  <h3>&nbsp;</h3>
-                </ion-text>
-                <ion-text color="medium">คุณยังไม่ระบุสถานที่ตั้ง</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary">
-              <ion-label>
-                <b>ข้อมูลที่ไม่เกี่ยวกับ mana</b>
-                <ion-text color="danger">&nbsp;Required</ion-text>
-              </ion-label>
-            </ion-item>
-            <ion-item color="tertiary" class="ion-margin-bottom">
-              <ion-label>
-                <ion-radio-group name="number" value="1" mode="md">
-                  <ion-item color="tertiary">
-                    <ion-radio value="1" slot="start"></ion-radio>
-                    <ion-label>ตัวเลือกที่ 1</ion-label>
-                  </ion-item>
-                  <ion-item color="tertiary">
-                    <ion-radio value="2" slot="start"></ion-radio>
-                    <ion-label>ตัวเลือกที่ 2</ion-label>
-                  </ion-item>
-                </ion-radio-group>
-              </ion-label>
-            </ion-item>
-
-            <div class="ion-margin-bottom">
-              <ion-card color="tertiary" class="ion-margin-bottom">
-                <ion-item color="tertiary">
-                  <ion-label>
-                    <b>ขออนุญาตเชื่อมระบบกับร้านของคุณ</b>
-                    <ion-text color="danger">&nbsp;Required</ion-text>
-                  </ion-label>
-                </ion-item>
-                <ion-card-content class="ion-padding">
-                  <div class="ion-text-center">
-                    <ion-label>
-                      <ion-icon name="pencil-outline"></ion-icon>
-                      <b>ใส่ข้อมูล</b>
-                    </ion-label>
-                  </div>
-                </ion-card-content>
-              </ion-card>
-            </div>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label><b>เวลาทำการ</b>
-                <ion-text color="medium">
-                  <h3>&nbsp;</h3>
-                </ion-text>
-                <ion-text color="medium">คุณยังไม่ระบุเวลาทำการ</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary">
-              <ion-label><b>ชื่อ</b>
-              </ion-label>
-            </ion-item>
-            <ion-item color="tertiary" class="ion-margin-bottom">
-              <ion-input type="text" placeholder="คุณยังไม่ระบุชื่อ"></ion-input>
-            </ion-item>
-
-          </ion-list>
-
-        </ion-accordion>
-
-        <ion-accordion value="required-fields-4">
-          <ion-item slot="header" color="danger">
-            <ion-label>Required fields 4 (*)</ion-label>
-          </ion-item>
-
-          <ion-list lines="none" slot="content">
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label>
-                <b>โปรดระบุที่อยู่ปัจจุบันของคุณ</b>
-                <ion-text color="danger">&nbsp;*</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label>
-                <b>ข้อมูลเกี่ยวกับ mana</b>
-                <ion-text color="danger">&nbsp;*</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label><b>สถานที่ตั้ง</b>
-                <ion-text color="danger">&nbsp;*</ion-text>
-                <ion-text color="medium">
-                  <h3>&nbsp;</h3>
-                </ion-text>
-                <ion-text color="medium">คุณยังไม่ระบุสถานที่ตั้ง</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary">
-              <ion-label>
-                <b>ข้อมูลที่ไม่เกี่ยวกับ mana</b>
-                <ion-text color="danger">&nbsp;*</ion-text>
-              </ion-label>
-            </ion-item>
-            <ion-item color="tertiary" class="ion-margin-bottom">
-              <ion-label>
-                <ion-radio-group name="number" value="1" mode="md">
-                  <ion-item color="tertiary">
-                    <ion-radio value="1" slot="start"></ion-radio>
-                    <ion-label>ตัวเลือกที่ 1</ion-label>
-                  </ion-item>
-                  <ion-item color="tertiary">
-                    <ion-radio value="2" slot="start"></ion-radio>
-                    <ion-label>ตัวเลือกที่ 2</ion-label>
-                  </ion-item>
-                </ion-radio-group>
-              </ion-label>
-            </ion-item>
-
-            <div class="ion-margin-bottom">
-              <ion-card color="tertiary" class="ion-margin-bottom">
-                <ion-item color="tertiary">
-                  <ion-label>
-                    <b>ขออนุญาตเชื่อมระบบกับร้านของคุณ</b>
-                    <ion-text color="danger">&nbsp;*</ion-text>
-                  </ion-label>
-                </ion-item>
-                <ion-card-content class="ion-padding">
-                  <div class="ion-text-center">
-                    <ion-label>
-                      <ion-icon name="pencil-outline"></ion-icon>
-                      <b>ใส่ข้อมูล</b>
-                    </ion-label>
-                  </div>
-                </ion-card-content>
-              </ion-card>
-            </div>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label><b>เวลาทำการ</b>
-                <ion-text color="medium">
-                  <h3>&nbsp;</h3>
-                </ion-text>
-                <ion-text color="medium">คุณยังไม่ระบุเวลาทำการ</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary">
-              <ion-label><b>ชื่อ</b>
-              </ion-label>
-            </ion-item>
-            <ion-item color="tertiary" class="ion-margin-bottom">
-              <ion-input type="text" placeholder="คุณยังไม่ระบุชื่อ"></ion-input>
-            </ion-item>
-
-          </ion-list>
-
-        </ion-accordion>
-
-        <ion-accordion value="required-fields-5">
-          <ion-item slot="header" color="danger">
-            <ion-label>Required fields 5 (icon)</ion-label>
-          </ion-item>
-
-          <ion-list lines="none" slot="content">
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-icon name="alert-circle-outline" slot="start" color="danger"></ion-icon>
-              <ion-label><b>โปรดระบุที่อยู่ปัจจุบันของคุณ</b></ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-icon name="alert-circle-outline" slot="start" color="danger"></ion-icon>
-              <ion-label><b>ข้อมูลเกี่ยวกับ mana</b></ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary">
-              <ion-icon name="alert-circle-outline" slot="start" color="danger"></ion-icon>
-              <ion-label>
-                <b>สถานที่ตั้ง</b>
-              </ion-label>
-            </ion-item>
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label color="medium">คุณยังไม่ระบุสถานที่ตั้ง</ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary">
-              <ion-icon name="alert-circle-outline" slot="start" color="danger"></ion-icon>
-              <ion-label><b>ข้อมูลที่ไม่เกี่ยวกับ mana</b></ion-label>
-            </ion-item>
-            <ion-item color="tertiary" class="ion-margin-bottom">
-              <ion-label>
-                <ion-radio-group name="number" value="1" mode="md">
-                  <ion-item color="tertiary">
-                    <ion-radio value="1" slot="start"></ion-radio>
-                    <ion-label>ตัวเลือกที่ 1</ion-label>
-                  </ion-item>
-                  <ion-item color="tertiary">
-                    <ion-radio value="2" slot="start"></ion-radio>
-                    <ion-label>ตัวเลือกที่ 2</ion-label>
-                  </ion-item>
-                </ion-radio-group>
-              </ion-label>
-            </ion-item>
-
-            <div class="ion-margin-bottom">
-              <ion-card color="tertiary" class="ion-margin-bottom">
-                <ion-item color="tertiary">
-                  <ion-icon name="alert-circle-outline" slot="start" color="danger"></ion-icon>
-                  <ion-label><b>ขออนุญาตเชื่อมระบบกับร้านของคุณ</b></ion-label>
-                </ion-item>
-                <ion-card-content class="ion-padding">
-                  <div class="ion-text-center">
-                    <ion-label>
-                      <ion-icon name="pencil-outline"></ion-icon>
-                      <b>ใส่ข้อมูล</b>
-                    </ion-label>
-                  </div>
-                </ion-card-content>
-              </ion-card>
-            </div>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label><b>เวลาทำการ</b>
-                <ion-text color="medium">
-                  <h3>&nbsp;</h3>
-                </ion-text>
-                <ion-text color="medium">คุณยังไม่ระบุเวลาทำการ</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary">
-              <ion-label><b>ชื่อ</b>
-              </ion-label>
-            </ion-item>
-            <ion-item color="tertiary" class="ion-margin-bottom">
-              <ion-input type="text" placeholder="คุณยังไม่ระบุชื่อ"></ion-input>
-            </ion-item>
-
-          </ion-list>
-
-        </ion-accordion>
-
-      </ion-accordion-group>
     </ion-accordion>
 
-
-    <ion-accordion value="Validators">
-      <ion-item slot="header" color="tertiary">
-        <ion-label>Validators</ion-label>
+    <ion-accordion value="2">
+      <ion-item slot="header" color="danger">
+        <ion-label>2. Radio</ion-label>
       </ion-item>
 
-      <ion-accordion-group slot="content">
+      <ion-list slot="content" lines="none">
+        <ion-item color="tertiary">
+          <ion-icon *ngIf="isDisplayIconMode" name="ellipse-outline" slot="start" color="primary"></ion-icon>
+          <ion-label>
+            <b>ข้อมูลที่ไม่เกี่ยวกับ mana</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item color="tertiary" class="ion-margin-bottom">
+          <ion-label>
+            <ion-radio-group name="number" mode="md">
+              <ion-item color="tertiary">
+                <ion-radio value="1" slot="start"></ion-radio>
+                <ion-label>ตัวเลือกที่ 1</ion-label>
+              </ion-item>
+              <ion-item color="tertiary">
+                <ion-radio value="2" slot="start"></ion-radio>
+                <ion-label>ตัวเลือกที่ 2</ion-label>
+              </ion-item>
+            </ion-radio-group>
+          </ion-label>
+        </ion-item>
 
-        <ion-accordion value="Validator-1">
-          <ion-item slot="header" color="danger">
-            <ion-label>Validator 1</ion-label>
-          </ion-item>
+        <ion-item color="tertiary">
+          <ion-icon name="alert-circle-outline" slot="start" color="danger" id="trigger-button-2"></ion-icon>
+          <ion-label>
+            <b>ข้อมูลที่ไม่เกี่ยวกับ mana</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-popover trigger="trigger-button-2">
+            <ng-template>
+              <ion-content class="ion-padding">
+                <ion-label color="danger">ข้อมูลไม่ถูกต้อง</ion-label>
+              </ion-content>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+        <ion-item color="tertiary" class="ion-margin-bottom">
+          <ion-label>
+            <ion-radio-group name="number" mode="md">
+              <ion-item color="tertiary">
+                <ion-radio value="1" slot="start"></ion-radio>
+                <ion-label>ตัวเลือกที่ 1</ion-label>
+              </ion-item>
+              <ion-item color="tertiary">
+                <ion-radio value="2" slot="start"></ion-radio>
+                <ion-label>ตัวเลือกที่ 2</ion-label>
+              </ion-item>
+            </ion-radio-group>
+          </ion-label>
+        </ion-item>
 
-          <ion-list lines="none" slot="content">
+        <ion-item color="tertiary">
+          <ion-icon *ngIf="isDisplayIconMode" name="checkmark-circle-outline" slot="start" color="primary"></ion-icon>
+          <ion-label>
+            <b>ข้อมูลที่ไม่เกี่ยวกับ mana</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item color="tertiary" class="ion-margin-bottom">
+          <ion-label>
+            <ion-radio-group name="number" value="1" mode="md">
+              <ion-item color="tertiary">
+                <ion-radio value="1" slot="start"></ion-radio>
+                <ion-label>ตัวเลือกที่ 1</ion-label>
+              </ion-item>
+              <ion-item color="tertiary">
+                <ion-radio value="2" slot="start"></ion-radio>
+                <ion-label>ตัวเลือกที่ 2</ion-label>
+              </ion-item>
+            </ion-radio-group>
+          </ion-label>
+        </ion-item>
+      </ion-list>
 
-            <ion-item color="tertiary" button class="ion-margin-bottom">
+    </ion-accordion>
+
+    <ion-accordion value="3">
+      <ion-item slot="header" color="danger">
+        <ion-label>3. Status (one line)</ion-label>
+      </ion-item>
+
+      <ion-list slot="content" lines="none">
+        <ion-item color="tertiary" button class="ion-margin-bottom">
+          <ion-icon *ngIf="isDisplayIconMode" name="ellipse-outline" slot="start" color="primary"></ion-icon>
+          <ion-label>
+            <b>โปรดระบุที่อยู่ปัจจุบันของคุณ</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+        </ion-item>
+
+        <ion-item color="tertiary" button class="ion-margin-bottom">
+          <ion-icon name="alert-circle-outline" slot="start" color="danger" id="trigger-button-3"></ion-icon>
+          <ion-label>
+            <b>โปรดระบุที่อยู่ปัจจุบันของคุณ</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-label color="danger" slot="end">ยังไม่ทำ</ion-label>
+          <ion-popover trigger="trigger-button-3">
+            <ng-template>
+              <ion-content class="ion-padding">
+                <ion-label color="danger">ข้อมูลไม่ถูกต้อง</ion-label>
+              </ion-content>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+
+        <ion-item color="tertiary" button class="ion-margin-bottom">
+          <ion-icon *ngIf="isDisplayIconMode" name="checkmark-circle-outline" slot="start" color="primary"></ion-icon>
+          <ion-label>
+            <b>โปรดระบุที่อยู่ปัจจุบันของคุณ</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-label color="primary" slot="end">ทำแล้ว</ion-label>
+        </ion-item>
+      </ion-list>
+
+    </ion-accordion>
+
+    <ion-accordion value="4">
+      <ion-item slot="header" color="danger">
+        <ion-label>4. Status (two line)</ion-label>
+      </ion-item>
+
+      <ion-list slot="content" lines="none">
+        <ion-item color="tertiary" button class="ion-margin-bottom">
+          <ion-icon *ngIf="isDisplayIconMode" name="ellipse-outline" slot="start" color="primary"></ion-icon>
+          <ion-label>
+            <b>โปรดระบุที่อยู่ปัจจุบันของคุณ</b>
+            <ion-text color="danger">*</ion-text>
+            <ion-text color="medium">
+              <h3>&nbsp;</h3>
+            </ion-text>
+            <ion-text color="medium">ยังไม่ได้ระบุที่อยู่ปัจจุบัน</ion-text>
+          </ion-label>
+        </ion-item>
+
+        <ion-item color="tertiary" button class="ion-margin-bottom">
+          <ion-icon name="alert-circle-outline" slot="start" color="danger" id="trigger-button-4"></ion-icon>
+          <ion-label>
+            <b>โปรดระบุที่อยู่ปัจจุบันของคุณ</b>
+            <ion-text color="danger">*</ion-text>
+            <ion-text color="medium">
+              <h3>&nbsp;</h3>
+            </ion-text>
+            <ion-text color="danger">ยังไม่ทำ</ion-text>
+          </ion-label>
+          <ion-popover trigger="trigger-button-4">
+            <ng-template>
+              <ion-content class="ion-padding">
+                <ion-label color="danger">ข้อมูลไม่ถูกต้อง</ion-label>
+              </ion-content>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+
+        <ion-item color="tertiary" button class="ion-margin-bottom">
+          <ion-icon *ngIf="isDisplayIconMode" name="checkmark-circle-outline" slot="start" color="primary"></ion-icon>
+          <ion-label>
+            <b>โปรดระบุที่อยู่ปัจจุบันของคุณ</b>
+            <ion-text color="danger">*</ion-text>
+            <ion-text color="medium">
+              <h3>&nbsp;</h3>
+            </ion-text>
+            <ion-text color="primary">ทำแล้ว</ion-text>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+    </ion-accordion>
+
+    <ion-accordion value="5">
+      <ion-item slot="header" color="danger">
+        <ion-label>5. Select BA</ion-label>
+      </ion-item>
+
+      <ion-list slot="content" lines="none">
+        <div class="ion-margin-bottom">
+          <ion-card color="tertiary" class="ion-margin-bottom">
+            <ion-item color="tertiary">
+              <ion-icon *ngIf="isDisplayIconMode" name="ellipse-outline" slot="start" color="primary"></ion-icon>
               <ion-label>
-                <b>โปรดระบุที่อยู่ปัจจุบันของคุณ</b>
+                <b>ขออนุญาตเชื่อมระบบกับร้านของคุณ</b>
+                <ion-text color="danger">*</ion-text>
               </ion-label>
-              <ion-note>
-                <ion-label color="primary">
-                  <h3>ทำแล้ว</h3>
+            </ion-item>
+            <ion-card-content class="ion-padding">
+              <div class="ion-text-center">
+                <ion-label>
+                  <ion-icon name="pencil-outline"></ion-icon>
+                  <b>ใส่ข้อมูล</b>
                 </ion-label>
-              </ion-note>
-            </ion-item>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </div>
 
-            <ion-item color="tertiary" button class="ion-margin-bottom">
+        <div class="ion-margin-bottom">
+          <ion-card color="tertiary" class="ion-margin-bottom">
+            <ion-item color="tertiary">
+              <ion-icon name="alert-circle-outline" slot="start" color="danger" id="trigger-button-5"></ion-icon>
               <ion-label>
-                <b>ข้อมูลเกี่ยวกับ mana</b>
+                <b>ขออนุญาตเชื่อมระบบกับร้านของคุณ</b>
+                <ion-text color="danger">*</ion-text>
               </ion-label>
-              <ion-note>
-                <ion-label color="danger">
-                  <h3>ยังไม่ได้ทำ</h3>
+              <ion-popover trigger="trigger-button-5">
+                <ng-template>
+                  <ion-content class="ion-padding">
+                    <ion-label color="danger">ข้อมูลไม่ถูกต้อง</ion-label>
+                  </ion-content>
+                </ng-template>
+              </ion-popover>
+            </ion-item>
+            <ion-card-content class="ion-padding">
+              <div class="ion-text-center">
+                <ion-label>
+                  <ion-icon name="pencil-outline"></ion-icon>
+                  <b>ใส่ข้อมูล</b>
                 </ion-label>
-              </ion-note>
-            </ion-item>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </div>
 
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label><b>สถานที่ตั้ง</b>
-                <ion-text color="medium">
-                  <h3>&nbsp;</h3>
-                </ion-text>
-                <ion-text color="primary">คุณได้ระบุสถานที่ตั้งแล้ว</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label><b>สถานที่ตั้ง</b>
-                <ion-text color="danger">&nbsp;ข้อมูลไม่ถูกต้อง</ion-text>
-                <ion-text color="medium">
-                  <h3>&nbsp;</h3>
-                </ion-text>
-                <ion-text color="medium">คุณยังไม่ระบุสถานที่ตั้ง</ion-text>
-              </ion-label>
-            </ion-item>
-
+        <div class="ion-margin-bottom">
+          <ion-card color="tertiary" class="ion-margin-bottom">
             <ion-item color="tertiary">
+              <ion-icon *ngIf="isDisplayIconMode" name="checkmark-circle-outline" slot="start" color="primary">
+              </ion-icon>
               <ion-label>
-                <b>ข้อมูลที่ไม่เกี่ยวกับ mana</b>
+                <b>ขออนุญาตเชื่อมระบบกับร้านของคุณ</b>
+                <ion-text color="danger">*</ion-text>
               </ion-label>
             </ion-item>
-            <ion-item color="tertiary" class="ion-margin-bottom">
+            <ion-card-content class="ion-padding">
+              <div class="ion-text-center ion-padding">
+                <ion-avatar slot="start" class="avatar-l center">
+                  <img src="assets/imgs/defaultshop.png">
+                </ion-avatar>
+                <ion-label class="ion-text-center">
+                  <b>ชื่อร้านค้า</b>
+                  <ion-text color="primary">
+                    <h3 class="ion-padding-top">
+                      <ion-icon name="checkmark-outline"></ion-icon> ข้อมูลร้านสมบูรณ์แล้ว
+                    </h3>
+                  </ion-text>
+                </ion-label>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </div>
+
+      </ion-list>
+
+    </ion-accordion>
+
+    <ion-accordion value="6">
+      <ion-item slot="header" color="danger">
+        <ion-label>6. Select (action-sheet)</ion-label>
+      </ion-item>
+
+      <ion-list slot="content" lines="none">
+        <ion-item color="tertiary">
+          <ion-icon *ngIf="isDisplayIconMode" name="ellipse-outline" slot="start" color="primary"></ion-icon>
+          <ion-label>
+            <b>เพศ</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item color="tertiary" class="ion-margin-bottom">
+          <ion-select class="ion-no-padding ion-padding-end ion-select-full" okText="ตกลง" cancelText="ยกเลิก"
+            interface="action-sheet" placeholder="กรุณาระบุเพศ">
+            <ion-select-option value="male">ชาย</ion-select-option>
+            <ion-select-option value="female">หญิง</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item color="tertiary">
+          <ion-icon name="alert-circle-outline" slot="start" color="danger" id="trigger-button-6"></ion-icon>
+          <ion-label>
+            <b>เพศ</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-popover trigger="trigger-button-6">
+            <ng-template>
+              <ion-content class="ion-padding">
+                <ion-label color="danger">ข้อมูลไม่ถูกต้อง</ion-label>
+              </ion-content>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+        <ion-item color="tertiary" class="ion-margin-bottom">
+          <ion-select class="ion-no-padding ion-padding-end ion-select-full" okText="ตกลง" cancelText="ยกเลิก"
+            interface="action-sheet" placeholder="กรุณาระบุเพศ">
+            <ion-select-option value="male">ชาย</ion-select-option>
+            <ion-select-option value="female">หญิง</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item color="tertiary">
+          <ion-icon *ngIf="isDisplayIconMode" name="checkmark-circle-outline" slot="start" color="primary"></ion-icon>
+          <ion-label>
+            <b>เพศ</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item color="tertiary">
+          <ion-select class="ion-no-padding ion-padding-end ion-select-full" okText="ตกลง" cancelText="ยกเลิก"
+            interface="action-sheet" placeholder="กรุณาระบุเพศ" value="male">
+            <ion-select-option value="male">ชาย</ion-select-option>
+            <ion-select-option value="female">หญิง</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+    </ion-accordion>
+
+    <ion-accordion value="7">
+      <ion-item slot="header" color="danger">
+        <ion-label>7. Select (alert)</ion-label>
+      </ion-item>
+
+      <ion-list slot="content" lines="none">
+        <ion-item color="tertiary">
+          <ion-icon *ngIf="isDisplayIconMode" name="ellipse-outline" slot="start" color="primary"></ion-icon>
+          <ion-label>
+            <b>เพศ</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item color="tertiary" class="ion-margin-bottom">
+          <ion-select class="ion-no-padding ion-padding-end ion-select-full" okText="ตกลง" cancelText="ยกเลิก"
+            interface="alert" placeholder="กรุณาระบุเพศ">
+            <ion-select-option value="male">ชาย</ion-select-option>
+            <ion-select-option value="female">หญิง</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item color="tertiary">
+          <ion-icon name="alert-circle-outline" slot="start" color="danger" id="trigger-button-7"></ion-icon>
+          <ion-label>
+            <b>เพศ</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-popover trigger="trigger-button-7">
+            <ng-template>
+              <ion-content class="ion-padding">
+                <ion-label color="danger">ข้อมูลไม่ถูกต้อง</ion-label>
+              </ion-content>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+        <ion-item color="tertiary" class="ion-margin-bottom">
+          <ion-select class="ion-no-padding ion-padding-end ion-select-full" okText="ตกลง" cancelText="ยกเลิก"
+            interface="alert" placeholder="กรุณาระบุเพศ">
+            <ion-select-option value="male">ชาย</ion-select-option>
+            <ion-select-option value="female">หญิง</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item color="tertiary">
+          <ion-icon *ngIf="isDisplayIconMode" name="checkmark-circle-outline" slot="start" color="primary"></ion-icon>
+          <ion-label>
+            <b>เพศ</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item color="tertiary">
+          <ion-select class="ion-no-padding ion-padding-end ion-select-full" okText="ตกลง" cancelText="ยกเลิก"
+            interface="alert" placeholder="กรุณาระบุเพศ" value="male">
+            <ion-select-option value="male">ชาย</ion-select-option>
+            <ion-select-option value="female">หญิง</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+    </ion-accordion>
+
+    <ion-accordion value="8">
+      <ion-item slot="header" color="danger">
+        <ion-label>8. Switch</ion-label>
+      </ion-item>
+
+      <ion-list slot="content" lines="none">
+        <ion-item color="tertiary" class="ion-margin-bottom">
+          <ion-icon *ngIf="isDisplayIconMode" name="ellipse-outline" slot="start" color="primary"></ion-icon>
+          <ion-label>
+            <b>อนุญาตส่งข้อมูลให้ 3rd party</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-toggle value="false" color="danger"></ion-toggle>
+        </ion-item>
+
+        <ion-item color="tertiary" class="ion-margin-bottom">
+          <ion-icon name="alert-circle-outline" slot="start" color="danger" id="trigger-button-8"></ion-icon>
+          <ion-label>
+            <b>อนุญาตส่งข้อมูลให้ 3rd party</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-popover trigger="trigger-button-8">
+            <ng-template>
+              <ion-content class="ion-padding">
+                <ion-label color="danger">ข้อมูลไม่ถูกต้อง</ion-label>
+              </ion-content>
+            </ng-template>
+          </ion-popover>
+          <ion-toggle value="false" color="danger"></ion-toggle>
+        </ion-item>
+
+        <ion-item color="tertiary" class="ion-margin-bottom">
+          <ion-icon *ngIf="isDisplayIconMode" name="checkmark-circle-outline" slot="start" color="primary"></ion-icon>
+          <ion-label>
+            <b>อนุญาตส่งข้อมูลให้ 3rd party</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-toggle value="true" class="toggle-checked" color="danger"></ion-toggle>
+        </ion-item>
+      </ion-list>
+
+    </ion-accordion>
+
+    <ion-accordion value="9">
+      <ion-item slot="header" color="danger">
+        <ion-label>9. Checkbox (Android)</ion-label>
+      </ion-item>
+
+      <ion-list slot="content" lines="none">
+
+        <ion-item color="tertiary">
+          <ion-icon *ngIf="isDisplayIconMode" name="ellipse-outline" slot="start" color="primary"></ion-icon>
+          <ion-checkbox slot="start" mode="md"></ion-checkbox>
+          <ion-label>
+            <b>อนุญาตส่งข้อมูลให้ 3rd party</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+        </ion-item>
+
+        <ion-item color="tertiary">
+          <ion-icon name="alert-circle-outline" slot="start" color="danger" id="trigger-button-9"></ion-icon>
+          <ion-checkbox slot="start" mode="md"></ion-checkbox>
+          <ion-label>
+            <b>อนุญาตส่งข้อมูลให้ 3rd party</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-popover trigger="trigger-button-9">
+            <ng-template>
+              <ion-content class="ion-padding">
+                <ion-label color="danger">ข้อมูลไม่ถูกต้อง</ion-label>
+              </ion-content>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+
+        <ion-item color="tertiary">
+          <ion-icon *ngIf="isDisplayIconMode" name="checkmark-circle-outline" slot="start" color="primary"></ion-icon>
+          <ion-checkbox slot="start" mode="md" class="checkbox-checked"></ion-checkbox>
+          <ion-label>
+            <b>อนุญาตส่งข้อมูลให้ 3rd party</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+    </ion-accordion>
+
+    <ion-accordion value="10">
+      <ion-item slot="header" color="danger">
+        <ion-label>10. Checkbox (iOS)</ion-label>
+      </ion-item>
+
+      <ion-list slot="content" lines="none">
+        <ion-item color="tertiary">
+          <ion-icon *ngIf="isDisplayIconMode" name="ellipse-outline" slot="start" color="primary"></ion-icon>
+          <ion-label>
+            <b>วันที่เปิดร้าน</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="inset" color="tertiary">
+          <ion-checkbox slot="start" color="primary"></ion-checkbox>
+          <ion-label>
+            <h3>จันทร์-อังคาร</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="inset" color="tertiary">
+          <ion-checkbox slot="start" color="primary"></ion-checkbox>
+          <ion-label>
+            <h3>พุธ-พฤหัส</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="inset" color="tertiary" class="ion-margin-bottom">
+          <ion-checkbox slot="start" color="primary"></ion-checkbox>
+          <ion-label>
+            <h3>ศุกร์-อาทิตย์</h3>
+          </ion-label>
+        </ion-item>
+
+        <ion-item color="tertiary">
+          <ion-icon name="alert-circle-outline" slot="start" color="danger" id="trigger-button-10"></ion-icon>
+          <ion-label>
+            <b>วันที่เปิดร้าน</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-popover trigger="trigger-button-10">
+            <ng-template>
+              <ion-content class="ion-padding">
+                <ion-label color="danger">ข้อมูลไม่ถูกต้อง</ion-label>
+              </ion-content>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+        <ion-item lines="inset" color="tertiary">
+          <ion-checkbox slot="start" color="primary"></ion-checkbox>
+          <ion-label>
+            <h3>จันทร์-อังคาร</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="inset" color="tertiary">
+          <ion-checkbox slot="start" color="primary"></ion-checkbox>
+          <ion-label>
+            <h3>พุธ-พฤหัส</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="inset" color="tertiary" class="ion-margin-bottom">
+          <ion-checkbox slot="start" color="primary"></ion-checkbox>
+          <ion-label>
+            <h3>ศุกร์-อาทิตย์</h3>
+          </ion-label>
+        </ion-item>
+
+        <ion-item color="tertiary">
+          <ion-icon *ngIf="isDisplayIconMode" name="checkmark-circle-outline" slot="start" color="primary"></ion-icon>
+          <ion-label>
+            <b>วันที่เปิดร้าน</b>
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="inset" color="tertiary">
+          <ion-checkbox slot="start" color="primary" class="checkbox-checked"></ion-checkbox>
+          <ion-label>
+            <h3>จันทร์-อังคาร</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="inset" color="tertiary">
+          <ion-checkbox slot="start" color="primary"></ion-checkbox>
+          <ion-label>
+            <h3>พุธ-พฤหัส</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="inset" color="tertiary" class="ion-margin-bottom">
+          <ion-checkbox slot="start" color="primary"></ion-checkbox>
+          <ion-label>
+            <h3>ศุกร์-อาทิตย์</h3>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+    </ion-accordion>
+
+    <ion-accordion value="11">
+      <ion-item slot="header" color="danger">
+        <ion-label>11. Datetime</ion-label>
+      </ion-item>
+
+      <ion-list slot="content" lines="none">
+
+        <ion-accordion-group>
+          <ion-accordion value="birthdate1" class="ion-margin-bottom">
+            <ion-item slot="header" color="tertiary">
+              <ion-icon *ngIf="isDisplayIconMode" name="ellipse-outline" slot="start" color="primary"></ion-icon>
               <ion-label>
-                <ion-radio-group name="number" value="1" mode="md">
-                  <ion-item color="tertiary">
-                    <ion-radio value="1" slot="start"></ion-radio>
-                    <ion-label>ตัวเลือกที่ 1</ion-label>
-                  </ion-item>
-                  <ion-item color="tertiary">
-                    <ion-radio value="2" slot="start"></ion-radio>
-                    <ion-label>ตัวเลือกที่ 2</ion-label>
-                  </ion-item>
-                </ion-radio-group>
+                <b>วัน/เดือน/ปีเกิด</b>
+                <ion-text color="danger">*</ion-text>
+                <ion-text color="medium">
+                  <h3 *ngIf="dateValue1">{{ dateValue1 }}</h3>
+                  <h3 *ngIf="!dateValue1">วันเดือนปีเกิดตามบัตร ปชช.</h3>
+                </ion-text>
               </ion-label>
             </ion-item>
 
-            <ion-item color="tertiary">
+            <ion-list slot="content" class="ion-padding">
+              <ion-datetime #datetime1 presentation="date" locale="th-TH" size="cover"
+                (ionChange)="dateValue1 = formatDate(datetime1.value)"></ion-datetime>
+            </ion-list>
+          </ion-accordion>
+
+          <ion-accordion value="birthdate2" class="ion-margin-bottom">
+            <ion-item slot="header" color="tertiary">
+              <ion-icon name="alert-circle-outline" slot="start" color="danger" id="trigger-button-11"></ion-icon>
               <ion-label>
-                <b>ข้อมูลที่ไม่เกี่ยวกับ mana</b>
-                <ion-text color="danger">
-                  คุณยังไม่เลือกข้อตกลง
+                <b>วัน/เดือน/ปีเกิด</b>
+                <ion-text color="danger">*</ion-text>
+                <ion-text color="medium">
+                  <h3 *ngIf="dateValue2">{{ dateValue2 }}</h3>
+                  <h3 *ngIf="!dateValue2">วันเดือนปีเกิดตามบัตร ปชช.</h3>
                 </ion-text>
               </ion-label>
+              <ion-popover trigger="trigger-button-11">
+                <ng-template>
+                  <ion-content class="ion-padding">
+                    <ion-label color="danger">ข้อมูลไม่ถูกต้อง</ion-label>
+                  </ion-content>
+                </ng-template>
+              </ion-popover>
             </ion-item>
-            <ion-item color="tertiary" class="ion-margin-bottom">
+
+            <ion-list slot="content" class="ion-padding">
+              <ion-datetime #datetime2 presentation="date" locale="th-TH" size="cover"
+                (ionChange)="dateValue2 = formatDate(datetime2.value)"></ion-datetime>
+            </ion-list>
+          </ion-accordion>
+
+          <ion-accordion value="birthdate3" class="ion-margin-bottom">
+            <ion-item slot="header" color="tertiary">
+              <ion-icon *ngIf="isDisplayIconMode" name="checkmark-circle-outline" slot="start" color="primary">
+              </ion-icon>
               <ion-label>
-                <ion-radio-group name="number" mode="md">
-                  <ion-item color="tertiary">
-                    <ion-radio value="1" slot="start"></ion-radio>
-                    <ion-label>ตัวเลือกที่ 1</ion-label>
-                  </ion-item>
-                  <ion-item color="tertiary">
-                    <ion-radio value="2" slot="start"></ion-radio>
-                    <ion-label>ตัวเลือกที่ 2</ion-label>
-                  </ion-item>
-                </ion-radio-group>
-              </ion-label>
-            </ion-item>
-
-            <div class="ion-margin-bottom">
-              <ion-card color="tertiary" class="ion-margin-bottom">
-                <ion-item color="tertiary">
-                  <ion-label>
-                    <b>ขออนุญาตเชื่อมระบบกับร้านของคุณ</b>
-                  </ion-label>
-                </ion-item>
-                <ion-card-content class="ion-padding">
-                  <div class="ion-text-center">
-                    <ion-avatar slot="start" class="avatar-l center">
-                      <img src="assets/imgs/defaultshop.png">
-                    </ion-avatar>
-                    <ion-label>
-                      <b>ชื่อร้านค้า</b>
-                      <ion-text color="primary">
-                        <h3 class="ion-padding-top">
-                          <ion-icon name="checkmark-outline"></ion-icon> ข้อมูลร้านสมบูรณ์แล้ว
-                        </h3>
-                      </ion-text>
-                    </ion-label>
-                  </div>
-                </ion-card-content>
-              </ion-card>
-            </div>
-
-            <div class="ion-margin-bottom">
-              <ion-card color="tertiary" class="ion-margin-bottom">
-                <ion-item color="tertiary">
-                  <ion-label>
-                    <b>ขออนุญาตเชื่อมระบบกับร้านของคุณ</b>
-                  </ion-label>
-                </ion-item>
-                <ion-card-content class="ion-padding">
-                  <div class="ion-text-center">
-                    <ion-label>
-                      <ion-icon name="pencil-outline"></ion-icon>
-                      <b>ใส่ข้อมูล</b>
-                      <ion-text color="danger">
-                        <h3 class="ion-padding-top">ข้อมูลไม่ถูกต้อง</h3>
-                      </ion-text>
-                    </ion-label>
-                  </div>
-                </ion-card-content>
-              </ion-card>
-            </div>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label><b>เวลาทำการ</b>
+                <b>วัน/เดือน/ปีเกิด</b>
+                <ion-text color="danger">*</ion-text>
                 <ion-text color="medium">
-                  <h3>&nbsp;</h3>
-                </ion-text>
-                <ion-text color="primary">คุณได้ระบุเวลาทำการแล้ว</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label><b>เวลาทำการ</b>
-                <ion-text color="danger">
-                  ข้อมูลไม่ถูกต้อง
-                </ion-text>
-                <ion-text color="medium">
-                  <h3>&nbsp;</h3>
-                </ion-text>
-                <ion-text color="medium">คุณยังไม่ระบุเวลาทำการ</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary">
-              <ion-label><b>ชื่อ</b></ion-label>
-            </ion-item>
-            <ion-item color="tertiary" class="ion-margin-bottom">
-              <ion-input type="text" value="อานน บางสาน"></ion-input>
-            </ion-item>
-
-            <ion-item color="tertiary">
-              <ion-label><b>ชื่อ</b>
-                <ion-text color="danger">
-                  ข้อมูลไม่ถูกต้อง
+                  <h3 *ngIf="dateValue3">{{ dateValue3 }}</h3>
+                  <h3 *ngIf="!dateValue3">14 มิถุนายน 2022</h3>
                 </ion-text>
               </ion-label>
             </ion-item>
-            <ion-item color="tertiary" class="ion-margin-bottom">
-              <ion-input type="text" placeholder="คุณยังไม่ระบุชื่อ"></ion-input>
-            </ion-item>
 
-          </ion-list>
+            <ion-list slot="content" class="ion-padding">
+              <ion-datetime #datetime3 presentation="date" locale="th-TH" size="cover"
+                (ionChange)="dateValue3 = formatDate(datetime3.value)"></ion-datetime>
+            </ion-list>
+          </ion-accordion>
+        </ion-accordion-group>
 
+      </ion-list>
 
-        </ion-accordion>
-
-        <ion-accordion value="Validator-2">
-          <ion-item slot="header" color="danger">
-            <ion-label>Validator 2</ion-label>
-          </ion-item>
-
-          <ion-list lines="none" slot="content">
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label><b>โปรดระบุที่อยู่ปัจจุบันของคุณ</b>
-                <ion-text color="medium">
-                  <h3>&nbsp;</h3>
-                </ion-text>
-                <ion-text color="primary">ทำแล้ว</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label><b>ข้อมูลเกี่ยวกับ mana</b>
-                <ion-text color="medium">
-                  <h3>&nbsp;</h3>
-                </ion-text>
-                <ion-text color="medium">ยังไม่ทำ</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label><b>สถานที่ตั้ง</b>
-                <ion-text color="medium">
-                  <h3>&nbsp;</h3>
-                </ion-text>
-                <ion-text color="primary">คุณได้ระบุสถานที่ตั้งแล้ว</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label><b>สถานที่ตั้ง</b>
-                <ion-text color="danger">&nbsp;ข้อมูลไม่ถูกต้อง</ion-text>
-                <ion-text color="medium">
-                  <h3>&nbsp;</h3>
-                </ion-text>
-                <ion-text color="medium">คุณยังไม่ระบุสถานที่ตั้ง</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary">
-              <ion-label>
-                <b>ข้อมูลที่ไม่เกี่ยวกับ mana</b>
-              </ion-label>
-            </ion-item>
-            <ion-item color="tertiary" class="ion-margin-bottom">
-              <ion-label>
-                <ion-radio-group name="number" value="1" mode="md">
-                  <ion-item color="tertiary">
-                    <ion-radio value="1" slot="start"></ion-radio>
-                    <ion-label>ตัวเลือกที่ 1</ion-label>
-                  </ion-item>
-                  <ion-item color="tertiary">
-                    <ion-radio value="2" slot="start"></ion-radio>
-                    <ion-label>ตัวเลือกที่ 2</ion-label>
-                  </ion-item>
-                </ion-radio-group>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary">
-              <ion-label>
-                <b>ข้อมูลที่ไม่เกี่ยวกับ mana</b>
-                <ion-text color="danger">
-                  คุณยังไม่เลือกข้อตกลง
-                </ion-text>
-              </ion-label>
-            </ion-item>
-            <ion-item color="tertiary" class="ion-margin-bottom">
-              <ion-label>
-                <ion-radio-group name="number" mode="md">
-                  <ion-item color="tertiary">
-                    <ion-radio value="1" slot="start"></ion-radio>
-                    <ion-label>ตัวเลือกที่ 1</ion-label>
-                  </ion-item>
-                  <ion-item color="tertiary">
-                    <ion-radio value="2" slot="start"></ion-radio>
-                    <ion-label>ตัวเลือกที่ 2</ion-label>
-                  </ion-item>
-                </ion-radio-group>
-              </ion-label>
-            </ion-item>
-
-            <div class="ion-margin-bottom">
-              <ion-card color="tertiary" class="ion-margin-bottom">
-                <ion-item color="tertiary">
-                  <ion-label>
-                    <b>ขออนุญาตเชื่อมระบบกับร้านของคุณ</b>
-                  </ion-label>
-                </ion-item>
-                <ion-card-content class="ion-padding">
-                  <div class="ion-text-center">
-                    <ion-avatar slot="start" class="avatar-l center">
-                      <img src="assets/imgs/defaultshop.png">
-                    </ion-avatar>
-                    <ion-label>
-                      <b>ชื่อร้านค้า</b>
-                      <ion-text color="primary">
-                        <h3 class="ion-padding-top">
-                          <ion-icon name="checkmark-outline"></ion-icon> ข้อมูลร้านสมบูรณ์แล้ว
-                        </h3>
-                      </ion-text>
-                    </ion-label>
-                  </div>
-                </ion-card-content>
-              </ion-card>
-            </div>
-
-            <div class="ion-margin-bottom">
-              <ion-card color="tertiary" class="ion-margin-bottom">
-                <ion-item color="tertiary">
-                  <ion-label>
-                    <b>ขออนุญาตเชื่อมระบบกับร้านของคุณ</b>
-                  </ion-label>
-                </ion-item>
-                <ion-card-content class="ion-padding">
-                  <div class="ion-text-center">
-                    <ion-label>
-                      <ion-icon name="pencil-outline"></ion-icon>
-                      <b>ใส่ข้อมูล</b>
-                      <ion-text color="danger">
-                        <h3 class="ion-padding-top">ข้อมูลไม่ถูกต้อง</h3>
-                      </ion-text>
-                    </ion-label>
-                  </div>
-                </ion-card-content>
-              </ion-card>
-            </div>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label><b>เวลาทำการ</b>
-                <ion-text color="medium">
-                  <h3>&nbsp;</h3>
-                </ion-text>
-                <ion-text color="primary">คุณได้ระบุเวลาทำการแล้ว</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary" button class="ion-margin-bottom">
-              <ion-label><b>เวลาทำการ</b>
-                <ion-text color="danger">
-                  ข้อมูลไม่ถูกต้อง
-                </ion-text>
-                <ion-text color="medium">
-                  <h3>&nbsp;</h3>
-                </ion-text>
-                <ion-text color="medium">คุณยังไม่ระบุเวลาทำการ</ion-text>
-              </ion-label>
-            </ion-item>
-
-            <ion-item color="tertiary">
-              <ion-label><b>ชื่อ</b></ion-label>
-            </ion-item>
-            <ion-item color="tertiary" class="ion-margin-bottom">
-              <ion-input type="text" value="อานน บางสาน"></ion-input>
-            </ion-item>
-
-            <ion-item color="tertiary">
-              <ion-label><b>ชื่อ</b>
-                <ion-text color="danger">
-                  ข้อมูลไม่ถูกต้อง
-                </ion-text>
-              </ion-label>
-            </ion-item>
-            <ion-item color="tertiary" class="ion-margin-bottom">
-              <ion-input type="text" placeholder="คุณยังไม่ระบุชื่อ"></ion-input>
-            </ion-item>
-
-          </ion-list>
-
-
-        </ion-accordion>
-
-      </ion-accordion-group>
     </ion-accordion>
 
   </ion-accordion-group>
