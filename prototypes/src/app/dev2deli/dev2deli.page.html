@@ -1,0 +1,181 @@
+<ion-content mode="ios">
+
+  <ion-list class="ion-padding-bottom">
+    <ion-card color="tertiary" class="ion-text-center ion-padding">
+      <ion-avatar color="tertiary" class="avatar-l center ion-margin-top ion-margin-bottom" (click)="toggleMode()">
+        <img src="assets/imgs/defaultshop.png" />
+      </ion-avatar>
+      <ion-label>
+        <h2><b>Devter</b></h2>
+      </ion-label>
+      <ion-label color="medium">08/06/22 (17.34 น)</ion-label>
+    </ion-card>
+  </ion-list>
+
+  <ion-card color="tertiary">
+    <ion-item color="tertiary" lines="none">
+      <ion-label><b>ขออนุญาตเปิดบริษัท</b></ion-label>
+      <a routerLink="/dev2deli">อ่านเพิ่มเติม</a>
+    </ion-item>
+    <ion-card-content>
+      Devter จะสร้างร้าน DD Delivery โปรดอ่าน และยินยอม ข้อตกลงในการทำสัญญา เพื่อใช้งานระบบ
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list lines="none" class="ion-margin-top">
+    <ion-item color="tertiary">
+      <ion-label><b>สร้างร้านค้า</b></ion-label>
+    </ion-item>
+    <ion-card color="tertiary" class="ion-text-center ion-padding">
+      <ion-avatar color="tertiary" class="avatar-l center ion-margin-top ion-margin-bottom">
+        <img src="assets/imgs/defaultshop.png" />
+      </ion-avatar>
+      <ion-label>
+        <h2><b>DD Delivery</b></h2>
+      </ion-label>
+    </ion-card>
+  </ion-list>
+
+  <ion-list lines="none" class="ion-margin-top">
+    <ion-item color="tertiary">
+      <ion-label><b>ทำระบบ Escrow ที่มีส่วนแบ่ง</b></ion-label>
+    </ion-item>
+
+    <ion-item color="tertiary">
+      <ion-icon name="home-outline" slot="start" color="medium"></ion-icon>
+      <ion-label>Software</ion-label>
+      <ion-label class="ion-text-end"><b>10%</b></ion-label>
+    </ion-item>
+    <ion-item color="tertiary">
+      <ion-icon name="person-outline" slot="start" color="medium"></ion-icon>
+      <ion-label>Rider</ion-label>
+      <ion-label class="ion-text-end"><b>50 <small>THB</small> + ค่าส่ง</b></ion-label>
+    </ion-item>
+    <ion-item color="tertiary">
+      <ion-icon name="bus-outline" slot="start" color="medium"></ion-icon>
+      <ion-label>Delivery</ion-label>
+      <ion-label class="ion-text-end"><b>ที่เหลือทั้งหมด</b></ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list lines="none" class="ion-margin-top">
+
+    <ion-item color="tertiary">
+      <ion-label><b>การขอข้อมูล</b></ion-label>
+    </ion-item>
+
+    <ion-item color="tertiary" button (click)="onFillData('a')" *ngIf="!isDevMode">
+      <ion-icon *ngIf="!isInvalid('a')" [name]="displayIcon('a')" slot="start" color="primary"></ion-icon>
+      <ion-icon *ngIf="isInvalid('a')" name="alert-circle-outline" slot="start" color="danger"></ion-icon>
+      <ion-label>
+        ที่อยู่ปัจจุบัน
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item color="tertiary" button (click)="onFillData('a')" *ngIf="isDevMode">
+      <ion-label>
+        <ion-icon *ngIf="!isInvalid('a')" [name]="displayIcon('a')" slot="start" color="primary"></ion-icon>
+        <ion-icon *ngIf="isInvalid('a')" name="alert-circle-outline" slot="start" color="danger"></ion-icon>
+        ที่อยู่ปัจจุบัน
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+    </ion-item>
+
+    <ion-item color="tertiary" button (click)="onFillData('b')" *ngIf="!isDevMode">
+      <ion-icon *ngIf="!isInvalid('b')" [name]="displayIcon('b')" slot="start" color="primary"></ion-icon>
+      <ion-icon *ngIf="isInvalid('b')" name="alert-circle-outline" slot="start" color="danger"></ion-icon>
+      <ion-label>
+        ข้อมูลผู้ใช้ mana
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item color="tertiary" button (click)="onFillData('b')" *ngIf="isDevMode">
+      <ion-label>
+        <ion-icon *ngIf="!isInvalid('b')" [name]="displayIcon('b')" slot="start" color="primary"></ion-icon>
+        <ion-icon *ngIf="isInvalid('b')" name="alert-circle-outline" slot="start" color="danger"></ion-icon>
+        ข้อมูลผู้ใช้ mana
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+    </ion-item>
+
+    <ion-item color="tertiary" button (click)="onFillData('c')" *ngIf="!isDevMode">
+      <ion-icon *ngIf="!isInvalid('c')" [name]="displayIcon('c')" slot="start" color="medium"></ion-icon>
+      <ion-label color="medium">
+        ข้อมูลทั่วไป
+      </ion-label>
+    </ion-item>
+    <ion-item color="tertiary" button (click)="onFillData('c')" *ngIf="isDevMode">
+      <ion-label color="medium">
+        <ion-icon *ngIf="!isInvalid('c')" [name]="displayIcon('c')" slot="start" color="medium"></ion-icon>
+        ข้อมูลทั่วไป
+      </ion-label>
+    </ion-item>
+
+    <ion-item color="tertiary" class="ion-text-center" lines="none">
+      <ion-label *ngIf="formCompleteCount() == 0">ข้อมูลยังไม่สมบูรณ์ (0/3)</ion-label>
+      <ion-label color="primary" *ngIf="formCompleteCount() > 0">ข้อมูลสมบูรณ์แล้ว ({{ formCompleteCount() }}/3)
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  <form [formGroup]="fg">
+    <ion-list lines="none" class="ion-margin-top">
+      <ion-item color="tertiary">
+        <ion-label>
+          <b>ขออนุญาตเข้าถึงข้อมูลส่วนตัว</b>
+          <ion-text color="danger" *ngIf="isInvalid('d')">
+            ข้อมูลไม่ถูกต้อง
+          </ion-text>
+        </ion-label>
+      </ion-item>
+
+      <ion-card color="tertiary">
+        <ion-item color="tertiary">
+          <ion-checkbox slot="start" formControlName="d"></ion-checkbox>
+          <p>ขออนุญาตเข้าถึงข้อมูลที่จำเป็นสำหรับการให้บริการแก่คุณ</p>
+        </ion-item>
+      </ion-card>
+    </ion-list>
+
+    <ion-card>
+      <ion-card-content>
+        <div class="ion-no-margin">
+          <ion-card color="tertiary" class="ion-no-padding border-radius">
+            <ion-list class="ion-margin-bottom" lines="none">
+              <ion-list-header mode="md" color="tertiary">
+                <ion-label>
+                  <h3>
+                    ยอมรับข้อตกลง
+                    <ion-text color="danger" *ngIf="isInvalid('isApprove')">
+                      คุณยังไม่เลือกข้อตกลง
+                    </ion-text>
+                  </h3>
+                </ion-label>
+              </ion-list-header>
+              <ion-radio-group formControlName="isApprove" mode="md">
+                <ion-item color="tertiary">
+                  <ion-label>
+                    <h3><b>อนุญาต</b></h3>
+                  </ion-label>
+                  <ion-radio slot="start" value="true"></ion-radio>
+                </ion-item>
+                <ion-item color="tertiary">
+                  <ion-label>
+                    <h3><b>ปฏิเสธ</b></h3>
+                  </ion-label>
+                  <ion-radio slot="start" value="false"></ion-radio>
+                </ion-item>
+              </ion-radio-group>
+            </ion-list>
+          </ion-card>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </form>
+
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-button color="danger" class="ion-no-margin" expand="full" type="submit" (click)="onSave()">ยืนยัน</ion-button>
+</ion-footer>

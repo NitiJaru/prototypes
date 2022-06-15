@@ -90,7 +90,8 @@ const routes: Routes = [
   {
     path: 'form-service',
     loadChildren: () => import('./form-service/form-service.module').then( m => m.FormServicePageModule)
-  },  {
+  },
+  {
     path: 'option-dialog-no-submit',
     loadChildren: () => import('./option-dialog-no-submit/option-dialog-no-submit.module').then( m => m.OptionDialogNoSubmitPageModule)
   },
@@ -102,6 +103,27 @@ const routes: Routes = [
     path: 'consent-j',
     loadChildren: () => import('./consent-j/consent-j.module').then( m => m.ConsentJPageModule)
   },
+  {
+    path: 'demo-a',
+    loadChildren: () => import('./demo-a/demo-a.module').then( m => m.DemoAPageModule)
+  },
+  {
+    path: 'demo-b',
+    loadChildren: () => import('./demo-b/demo-b.module').then( m => m.DemoBPageModule)
+  },
+  {
+    path: 'demo-c',
+    loadChildren: () => import('./demo-c/demo-c.module').then( m => m.DemoCPageModule)
+  },
+  {
+    path: 'demo-d',
+    loadChildren: () => import('./demo-d/demo-d.module').then( m => m.DemoDPageModule)
+  },
+  {
+    path: 'dev2deli',
+    loadChildren: () => import('./dev2deli/dev2deli.module').then( m => m.Dev2deliPageModule)
+  },
+
 
 
 ];
