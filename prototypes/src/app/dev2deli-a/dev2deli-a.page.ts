@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-dev2deli',
-  templateUrl: './dev2deli.page.html',
-  styleUrls: ['./dev2deli.page.scss'],
+  selector: 'app-dev2deli-a',
+  templateUrl: './dev2deli-a.page.html',
+  styleUrls: ['./dev2deli-a.page.scss'],
 })
-export class Dev2deliPage implements OnInit {
+export class Dev2deliAPage implements OnInit {
 
   private formDataTotalCount: string[] = ["a", "b", "c", "d"];
 

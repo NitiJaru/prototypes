@@ -123,6 +123,33 @@ const routes: Routes = [
     path: 'dev2deli',
     loadChildren: () => import('./dev2deli/dev2deli.module').then( m => m.Dev2deliPageModule)
   },
+  {
+    path: 'dev2deli-b',
+    loadChildren: () => import('./dev2deli-b/dev2deli-b.module').then( m => m.Dev2deliBPageModule)
+  },
+  {
+    path: 'dev2deli-a',
+    loadChildren: () => import('./dev2deli-a/dev2deli-a.module').then( m => m.Dev2deliAPageModule)
+  },
+  {
+    path: 'dev2deli-c',
+    loadChildren: () => import('./dev2deli-c/dev2deli-c.module').then( m => m.Dev2deliCPageModule)
+  },
+  {
+    path: 'cdexp-a',
+    loadChildren: () => import('./cdexp-a/cdexp-a.module').then( m => m.CdexpAPageModule)
+  },
+  {
+    path: 'cdexp-b',
+    loadChildren: () => import('./cdexp-b/cdexp-b.module').then( m => m.CdexpBPageModule)
+  },
+  {
+    path: 'demo-input',
+    loadChildren: () => import('./demo-input/demo-input.module').then( m => m.DemoInputPageModule)
+  },
+
+
+
 
 
 

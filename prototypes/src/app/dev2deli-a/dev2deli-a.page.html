@@ -71,41 +71,67 @@
       </ion-item>
 
       <ion-item color="tertiary" button (click)="onFillData('a')">
-        <ion-icon *ngIf="!isInvalid('a')" [name]="displayIcon('a')" slot="start" color="primary"></ion-icon>
-        <ion-icon *ngIf="isInvalid('a')" name="alert-circle-outline" slot="start" color="danger"></ion-icon>
         <p>
-          ที่อยู่บริษัท
+          <ion-icon *ngIf="!isInvalid('a')" [name]="displayIcon('a')" color="primary"></ion-icon>
+          <ion-icon *ngIf="isInvalid('a')" name="alert-circle-outline" color="danger"></ion-icon>
+          <span>&nbsp;</span>ที่อยู่บริษัท
           <ion-text color="danger">*</ion-text>
+          <ion-text color="medium" *ngIf="!hasData('a')">
+            <p class="ion-no-margin ion-margin-top">คุณยังไม่ระบุที่อยู่บริษัท</p>
+          </ion-text>
+          <ion-text color="medium" *ngIf="hasData('a')">
+            <p class="ion-no-margin ion-margin-top">44 Vibhavadi Rangsit Road, แขวง ดินแดง เขตดินแดง กรุงเทพมหานคร 10400
+            </p>
+          </ion-text>
         </p>
       </ion-item>
 
       <ion-item color="tertiary" button (click)="onFillData('b')">
-        <ion-icon *ngIf="!isInvalid('b')" [name]="displayIcon('b')" slot="start" color="primary"></ion-icon>
-        <ion-icon *ngIf="isInvalid('b')" name="alert-circle-outline" slot="start" color="danger"></ion-icon>
         <p>
-          เบอร์โทรบริษัท
+          <ion-icon *ngIf="!isInvalid('b')" [name]="displayIcon('b')" color="primary"></ion-icon>
+          <ion-icon *ngIf="isInvalid('b')" name="alert-circle-outline" color="danger"></ion-icon>
+          <span>&nbsp;</span>เบอร์โทรบริษัท
           <ion-text color="danger">*</ion-text>
+          <ion-text color="medium" *ngIf="!hasData('b')">
+            <p class="ion-no-margin ion-margin-top">คุณยังไม่ระบุเบอร์โทรบริษัท</p>
+          </ion-text>
+          <ion-text color="medium" *ngIf="hasData('b')">
+            <p class="ion-no-margin ion-margin-top">0801234567</p>
+          </ion-text>
         </p>
       </ion-item>
 
       <ion-item color="tertiary" button (click)="onFillData('c')">
-        <ion-icon *ngIf="!isInvalid('c')" [name]="displayIcon('c')" slot="start" color="primary"></ion-icon>
-        <ion-icon *ngIf="isInvalid('c')" name="alert-circle-outline" slot="start" color="danger"></ion-icon>
         <p>
-          จุดศูนย์กลางในการให้บริการ
+          <ion-icon *ngIf="!isInvalid('c')" [name]="displayIcon('c')" color="primary"></ion-icon>
+          <ion-icon *ngIf="isInvalid('c')" name="alert-circle-outline" color="danger"></ion-icon>
+          <span>&nbsp;</span>จุดศูนย์กลางในการให้บริการ
           <ion-text color="danger">*</ion-text>
+          <ion-text color="medium" *ngIf="!hasData('c')">
+            <p class="ion-no-margin ion-margin-top">คุณยังไม่ระบุจุดศูนย์กลางในการให้บริการ</p>
+          </ion-text>
+          <ion-text color="medium" *ngIf="hasData('c')">
+            <p class="ion-no-margin ion-margin-top">ถนน ราชดำเนินกลาง แขวงพระบรมมหาราชวัง เขตพระนคร กรุงเทพมหานคร 10200
+            </p>
+          </ion-text>
         </p>
       </ion-item>
 
       <ion-item color="tertiary" button (click)="onFillData('d')">
-        <ion-icon *ngIf="!isInvalid('d')" [name]="displayIcon('d')" slot="start" color="primary"></ion-icon>
-        <ion-icon *ngIf="isInvalid('d')" name="alert-circle-outline" slot="start" color="danger"></ion-icon>
         <p>
-          รัศมีการให้บริการ
+          <ion-icon *ngIf="!isInvalid('d')" [name]="displayIcon('d')" color="primary"></ion-icon>
+          <ion-icon *ngIf="isInvalid('d')" name="alert-circle-outline" color="danger"></ion-icon>
+          <span>&nbsp;</span>รัศมีการให้บริการ
           <ion-text color="danger">*</ion-text>
+          <ion-text color="medium" *ngIf="!hasData('d')">
+            <p class="ion-no-margin ion-margin-top">คุณยังไม่ระบุรัศมีการให้บริการ</p>
+          </ion-text>
+          <ion-text color="medium" *ngIf="hasData('d')">
+            <p class="ion-no-margin ion-margin-top">10 (กิโลเมตร)</p>
+          </ion-text>
         </p>
       </ion-item>
-
+      
       <ion-item color="tertiary" class="ion-text-center" lines="none">
         <ion-label [color]="formCompleteCount() > 0? 'primary': 'dark'" style="font-weight: normal;">{{ displayFormProgress() }}</ion-label>
       </ion-item>

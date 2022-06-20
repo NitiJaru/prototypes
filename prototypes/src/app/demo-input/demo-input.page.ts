@@ -2,28 +2,29 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-dev2deli',
-  templateUrl: './dev2deli.page.html',
-  styleUrls: ['./dev2deli.page.scss'],
+  selector: 'app-demo-input',
+  templateUrl: './demo-input.page.html',
+  styleUrls: ['./demo-input.page.scss'],
 })
-export class Dev2deliPage implements OnInit {
-
-  private formDataTotalCount: string[] = ["a", "b", "c", "d"];
+export class DemoInputPage implements OnInit {
 
   public fg: FormGroup;
   public isFirstTime: boolean = true;
 
   constructor(private fb: FormBuilder) {
     this.fg = this.fb.group({
-      'a': [null, Validators.required],
-      'b': [null, Validators.required],
-      'c': [null, Validators.required],
-      'd': [null, Validators.required],
-      'isSentKYC': [false, [Validators.required, Validators.requiredTrue]],
-      'isApprove': [null, Validators.required],
+      'i1': [null, Validators.required],
+      'i2': [null, Validators.required],
+      'i3': [null, Validators.required],
+      'i4': [null, Validators.required],
+      'i5': [null, Validators.required],
+      'i6': [null, Validators.required],
+      'i7': [null, Validators.required],
+      'i8': [null, Validators.required],
+      'i9': [null, Validators.required],
+      'i10': [null, Validators.required],
     });
   }
-
 
   ngOnInit() {
   }
@@ -33,6 +34,8 @@ export class Dev2deliPage implements OnInit {
       this.isFirstTime = false;
     }
 
+    console.log(this.fg.value);
+    
     if (this.fg.valid) {
       alert("Submit success!!");
     }
@@ -60,17 +63,6 @@ export class Dev2deliPage implements OnInit {
 
   displayIcon(name: string): string {
     return this.hasData(name) ? "checkmark-circle-outline" : "ellipse-outline";
-  }
-
-  formCompleteCount(): number {
-    let count: number = 0;
-    this.formDataTotalCount.forEach(name => { count += this.hasData(name) ? 1 : 0; })
-    return count;
-  }
-
-  displayFormProgress(): string {
-    let preMsg = this.formCompleteCount() > 0 ? "ข้อมูลสมบูรณ์แล้ว" : "ข้อมูลยังไม่สมบูรณ์";
-    return `${preMsg} ${this.formCompleteCount()}/${this.formDataTotalCount.length}`
   }
 
 }
