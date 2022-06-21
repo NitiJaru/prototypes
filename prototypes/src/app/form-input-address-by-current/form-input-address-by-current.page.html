@@ -1,0 +1,85 @@
+<ion-content mode="ios">
+
+  <ion-list lines="none">
+    <form [formGroup]="fg">
+      
+      <ion-item lines="none" class="ion-no-padding" color="tertiary">
+        <ion-label class="ion-text-end" slot="end" (click)="onCopyFromAddressByIdCard()">
+          <h3><img height="15" src="assets/imgs/copy.png" /> คัดลอกที่อยู่บัตรมาใช้</h3>
+        </ion-label>
+      </ion-item>
+
+      <ion-item color="tertiary">
+        <ion-label>
+          <ion-icon [name]="displayIcon('i1')" [color]="displayColor('i1')"></ion-icon>
+          <b>&nbsp;ที่อยู่&nbsp;</b>
+          <ion-text color="danger">*</ion-text>
+        </ion-label>
+      </ion-item>
+      <ion-item color="tertiary" lines="full">
+        <ion-input type="text" placeholder="เช่น หมู่บ้านแสนสุข 144/1 หมู่ 1 ถนนริมบึง" formControlName="i1">
+        </ion-input>
+      </ion-item>
+
+      <ion-item color="tertiary">
+        <ion-label>
+          <ion-icon [name]="displayIcon('i2')" [color]="displayColor('i2')"></ion-icon>
+          <b>&nbsp;ตำบล&nbsp;</b>
+          <ion-text color="danger">*</ion-text>
+        </ion-label>
+      </ion-item>
+      <ion-item color="tertiary" lines="full">
+        <ion-input type="text" placeholder="เช่น บางพระ" formControlName="i2"></ion-input>
+      </ion-item>
+
+      <ion-item color="tertiary">
+        <ion-label>
+          <ion-icon [name]="displayIcon('i3')" [color]="displayColor('i3')"></ion-icon>
+          <b>&nbsp;อำเภอ&nbsp;</b>
+          <ion-text color="danger">*</ion-text>
+        </ion-label>
+      </ion-item>
+      <ion-item color="tertiary" lines="full">
+        <ion-input type="text" placeholder="เช่น ศรีราชา" formControlName="i3"></ion-input>
+      </ion-item>
+
+      <ion-item color="tertiary">
+        <ion-label>
+          <ion-icon [name]="displayIcon('i4')" [color]="displayColor('i4')"></ion-icon>
+          <b>&nbsp;จังหวัด&nbsp;</b>
+          <ion-text color="danger">*</ion-text>
+        </ion-label>
+      </ion-item>
+      <ion-item color="tertiary" lines="full">
+        <ion-input type="text" placeholder="เช่น ชลบุรี" formControlName="i4"></ion-input>
+      </ion-item>
+
+      <ion-item color="tertiary">
+        <ion-label>
+          <ion-icon [name]="displayIcon('i5')" [color]="displayColor('i5')"></ion-icon>
+          <b>&nbsp;รหัสไปรษณีย์&nbsp;</b>
+          <ion-text color="danger">*</ion-text>
+        </ion-label>
+      </ion-item>
+      <ion-item color="tertiary" lines="full">
+        <ion-input type="text" placeholder="เช่น 20110" formControlName="i5"></ion-input>
+      </ion-item>
+
+      <ion-item color="tertiary">
+        <ion-label>
+          <ion-icon [name]="displayIcon('i6')" [color]="displayColor('i6')"></ion-icon>
+          <b>&nbsp;หมายเหตุ&nbsp;</b>
+          <ion-text color="danger">*</ion-text>
+        </ion-label>
+      </ion-item>
+      <ion-item color="tertiary" lines="full">
+        <ion-input type="text" placeholder="ระบุบันทึกเพิ่มเติม (ไม่จำเป็น)" formControlName="i6"></ion-input>
+      </ion-item>
+
+    </form>
+  </ion-list>
+
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-button color="danger" class="ion-no-margin" expand="full" type="submit" (click)="onSave()">ยืนยัน</ion-button>
+</ion-footer>
