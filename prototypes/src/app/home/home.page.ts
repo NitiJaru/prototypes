@@ -19,6 +19,7 @@ export class HomePage implements OnInit {
     new ListInfo("รับ/ส่งข้อมูล ระหว่างหน้า", "/form-send-data", "module, ts", true),
     new ListInfo("รับ/ส่งข้อมูล ผ่าน Service", "/form-service", "module, ts, service", true),
     new ListInfo("Confirm dialog", "/form-confirm-dialog", "module, ts", true),
+    new ListInfo("Standard Input", "/form-input", "module, scss, ts", true),
     new ListInfo("ลิสต์รายการ", "/list-template"),
     new ListInfo("Option dialog", "/option-dialog-template"),
     new ListInfo("Binding data", "/option-dialog-binding", "module, ts", true),

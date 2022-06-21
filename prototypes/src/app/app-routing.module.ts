@@ -94,6 +94,22 @@ const routes: Routes = [
     path: 'option-dialog-no-submit',
     loadChildren: () => import('./option-dialog-no-submit/option-dialog-no-submit.module').then( m => m.OptionDialogNoSubmitPageModule)
   },
+  {
+    path: 'form-input',
+    loadChildren: () => import('./form-input/form-input.module').then( m => m.FormInputPageModule)
+  },
+  {
+    path: 'form-input-address-by-idcard',
+    loadChildren: () => import('./form-input-address-by-idcard/form-input-address-by-idcard.module').then( m => m.FormInputAddressByIdcardPageModule)
+  },
+  {
+    path: 'form-input-address-by-current',
+    loadChildren: () => import('./form-input-address-by-current/form-input-address-by-current.module').then( m => m.FormInputAddressByCurrentPageModule)
+  },
+  {
+    path: 'form-input-tel',
+    loadChildren: () => import('./form-input-tel/form-input-tel.module').then( m => m.FormInputTelPageModule)
+  },
 
 
 ];
