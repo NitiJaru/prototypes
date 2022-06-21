@@ -1,0 +1,162 @@
+<ion-content mode="ios">
+
+  <form [formGroup]="fg">
+    <ion-list lines="none">
+
+      <!-- คำนำหน้าชื่อ -->
+      <ng-container>
+        <ion-item color="tertiary">
+          <p class="ion-no-margin">
+            <ion-icon [name]="displayIcon('i1')" [color]="displayColor('i1')"></ion-icon>
+            <b>&nbsp;คำนำหน้าชื่อ&nbsp;</b>
+            <ion-text color="danger">*</ion-text>
+          </p>
+        </ion-item>
+        <ion-item color="tertiary" lines="full">
+          <ion-select class="ion-no-padding ion-padding-end ion-select-full" okText="ตกลง" cancelText="ยกเลิก"
+            interface="action-sheet" placeholder="กรุณาระบุคำนำหน้าชื่อ" formControlName="i1">
+            <ion-select-option value="mr">นาย</ion-select-option>
+            <ion-select-option value="mrs">นาง</ion-select-option>
+            <ion-select-option value="miss">นางสาว</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ng-container>
+
+      <!-- ชื่อ -->
+      <ng-container>
+        <ion-item color="tertiary">
+          <p class="ion-no-margin">
+            <ion-icon [name]="displayIcon('i2')" [color]="displayColor('i2')"></ion-icon>
+            <b>&nbsp;ชื่อ&nbsp;</b>
+            <ion-text color="danger">*</ion-text>
+          </p>
+        </ion-item>
+        <ion-item color="tertiary" lines="full">
+          <ion-input type="text" placeholder="ตัวอย่าง. อานนท์" formControlName="i2"></ion-input>
+        </ion-item>
+      </ng-container>
+
+      <!-- นามสกุล -->
+      <ng-container>
+        <ion-item color="tertiary">
+          <p class="ion-no-margin">
+            <ion-icon [name]="displayIcon('i3')" [color]="displayColor('i3')"></ion-icon>
+            <b>&nbsp;นามสกุล&nbsp;</b>
+            <ion-text color="danger">*</ion-text>
+          </p>
+        </ion-item>
+        <ion-item color="tertiary" lines="full">
+          <ion-input type="text" placeholder="ตัวอย่าง. บางสาน" formControlName="i3"></ion-input>
+        </ion-item>
+      </ng-container>
+
+      <!-- วัน/เดือน/ปีเกิด -->
+      <ng-container>
+        <ion-item color="tertiary">
+          <p class="ion-no-margin">
+            <ion-icon [name]="displayIcon('i4')" [color]="displayColor('i4')"></ion-icon>
+            <b>&nbsp;วัน/เดือน/ปีเกิด&nbsp;</b>
+            <ion-text color="danger">*</ion-text>
+          </p>
+        </ion-item>
+        <ion-item color="tertiary" lines="full">
+          <ion-input type="text" placeholder="01/ม.ค.2534" formControlName="i4"></ion-input>
+        </ion-item>
+      </ng-container>
+
+      <!-- เลขบัตร ปชช. -->
+      <ng-container>
+        <ion-item color="tertiary">
+          <p class="ion-no-margin">
+            <ion-icon [name]="displayIcon('i5')" [color]="displayColor('i5')"></ion-icon>
+            <b>&nbsp;เลขบัตร ปชช.&nbsp;</b>
+            <ion-text color="danger">*</ion-text>
+          </p>
+        </ion-item>
+        <ion-item color="tertiary" lines="full">
+          <ion-input type="text" placeholder="1349900000000" formControlName="i5"></ion-input>
+        </ion-item>
+      </ng-container>
+
+      <!-- เลขหลังบัตร ปชช. -->
+      <ng-container>
+        <ion-item color="tertiary">
+          <p class="ion-no-margin">
+            <ion-icon [name]="displayIcon('i6')" [color]="displayColor('i6')"></ion-icon>
+            <b>&nbsp;เลขหลังบัตร ปชช.&nbsp;</b>
+            <ion-text color="danger">*</ion-text>
+          </p>
+        </ion-item>
+        <ion-item color="tertiary" lines="full">
+          <ion-input type="text" placeholder="AB1234567890" formControlName="i6"></ion-input>
+        </ion-item>
+      </ng-container>
+
+      <!-- ที่อยู่ตามบัตรประชาชน -->
+      <ng-container>
+        <ion-item color="tertiary" lines="full" button routerLink="/demo-kyc-address-idcard">
+          <p>
+            <ion-icon [name]="displayIcon('i7')" [color]="displayColor('i7')"></ion-icon>
+            <b>&nbsp;ที่อยู่ตามบัตรประชาชน&nbsp;</b>
+            <ion-text color="danger">*</ion-text>
+            <ion-text color="medium" *ngIf="hasData('i7')">
+              <p class="ion-no-margin ion-margin-top">{{ getData('i7') }}</p>
+            </ion-text>
+          </p>
+        </ion-item>
+      </ng-container>
+
+      <!-- ที่อยู่ปัจจุบัน -->
+      <ng-container>
+        <ion-item color="tertiary" lines="full" button  routerLink="/demo-kyc-address-current">
+          <p>
+            <ion-icon [name]="displayIcon('i8')" [color]="displayColor('i8')"></ion-icon>
+            <b>&nbsp;ที่อยู่ปัจจุบัน&nbsp;</b>
+            <ion-text color="danger">*</ion-text>
+            <ion-text color="medium" *ngIf="hasData('i8')">
+              <p class="ion-no-margin ion-margin-top">{{ getData('i8') }}</p>
+            </ion-text>
+          </p>
+        </ion-item>
+      </ng-container>
+
+      <!-- อาชีพ -->
+      <ng-container>
+        <ion-item color="tertiary">
+          <p class="ion-no-margin">
+            <ion-icon [name]="displayIcon('i9')" [color]="displayColor('i9')"></ion-icon>
+            <b>&nbsp;อาชีพ&nbsp;</b>
+            <ion-text color="danger">*</ion-text>
+          </p>
+        </ion-item>
+        <ion-item color="tertiary" lines="full">
+          <ion-select class="ion-no-padding ion-padding-end ion-select-full" okText="ตกลง" cancelText="ยกเลิก"
+            interface="action-sheet" placeholder="กรุณาระบุอาชีพ" formControlName="i9">
+            <ion-select-option value="a">รับราชการ</ion-select-option>
+            <ion-select-option value="b">รับจ้างทั่วไป</ion-select-option>
+            <ion-select-option value="c">รับอ้ายได้บ่</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ng-container>
+
+      <!-- เบอร์โทรศัพท์ -->
+      <ng-container>
+        <ion-item color="tertiary" lines="full" button routerLink="/demo-kyc-tel">
+          <p>
+            <ion-icon [name]="displayIcon('i10')" [color]="displayColor('i10')"></ion-icon>
+            <b>&nbsp;เบอร์โทรศัพท์&nbsp;</b>
+            <ion-text color="danger">*</ion-text>
+            <ion-text color="medium" *ngIf="hasData('i10')">
+              <p class="ion-no-margin ion-margin-top">{{ getData('i10') }}</p>
+            </ion-text>
+          </p>
+        </ion-item>
+      </ng-container>
+
+    </ion-list>
+  </form>
+
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-button color="danger" class="ion-no-margin" expand="full" type="submit" (click)="onSave()">ยืนยัน</ion-button>
+</ion-footer>

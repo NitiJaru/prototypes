@@ -146,7 +146,23 @@ const routes: Routes = [
   {
     path: 'demo-input',
     loadChildren: () => import('./demo-input/demo-input.module').then( m => m.DemoInputPageModule)
+  },  {
+    path: 'demo-kyc',
+    loadChildren: () => import('./demo-kyc/demo-kyc.module').then( m => m.DemoKycPageModule)
   },
+  {
+    path: 'demo-kyc-address-idcard',
+    loadChildren: () => import('./demo-kyc-address-idcard/demo-kyc-address-idcard.module').then( m => m.DemoKycAddressIdcardPageModule)
+  },
+  {
+    path: 'demo-kyc-address-current',
+    loadChildren: () => import('./demo-kyc-address-current/demo-kyc-address-current.module').then( m => m.DemoKycAddressCurrentPageModule)
+  },
+  {
+    path: 'demo-kyc-tel',
+    loadChildren: () => import('./demo-kyc-tel/demo-kyc-tel.module').then( m => m.DemoKycTelPageModule)
+  },
+
 
 
 
