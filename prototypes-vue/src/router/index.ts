@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
-import { RouteRecordRaw } from 'vue-router';
+import { createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import HomePage from '../views/HomePage.vue'
 
 const routes: Array<RouteRecordRaw> = [
@@ -15,7 +15,7 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(process.env.BASE_URL),
   routes
 })
 
