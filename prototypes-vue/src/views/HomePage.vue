@@ -26,7 +26,7 @@
         </ion-list-header>
 
         <div v-for="item in info.data" v-bind:key="item">
-          <a v-if="item.link" target="_blank" :routerLink="item.link">
+          <a v-if="item.link" @click="() => router.push(item.link)">
             <ion-item color="tertiary" button v-bind:class="{ 'indent': item.isSub }">
               <ion-label>
                 {{ item.title }}
@@ -55,6 +55,7 @@
 <script lang="ts">
 import { IonContent, IonPage, IonList, IonListHeader, IonItem, IonLabel, IonText } from '@ionic/vue';
 import { defineComponent } from 'vue';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
   name: 'HomePage',
@@ -68,6 +69,7 @@ export default defineComponent({
     IonText
   },
   setup() {
+    const router = useRouter()
     const data: any = [{
       title: "Template pages (Vue)",
       data: [
@@ -96,6 +98,7 @@ export default defineComponent({
       ]
     }];
     return {
+      router,
       data
     }
   }
