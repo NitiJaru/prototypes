@@ -1,68 +1,120 @@
 <template>
   <ion-page>
-    <ion-header :translucent="true">
-      <ion-toolbar>
-        <ion-title>Blank</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    
-    <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Blank</ion-title>
-        </ion-toolbar>
-      </ion-header>
-    
-      <div id="container">
-        <strong>Ready to create an app?</strong>
-        <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-      </div>
+    <ion-content class="ion-padding" mode="ios">
+
+      <ion-list class="ion-margin-bottom" lines="full">
+        <ion-list-header class="ion-padding">
+          <ion-label>Reference tools</ion-label>
+        </ion-list-header>
+
+        <a target="_blank" href="https://ionicframework.com/docs/components">
+          <ion-item color="tertiary" button>
+            <ion-label>UI Components</ion-label>
+          </ion-item>
+        </a>
+        <a target="_blank" href="https://ionic.io/ionicons">
+          <ion-item color="tertiary" button>
+            <ion-label>Icons</ion-label>
+          </ion-item>
+        </a>
+
+      </ion-list>
+
+      <ion-list class="ion-margin-bottom" lines="full" v-for="info in data" v-bind:key="info">
+        <ion-list-header class="ion-padding">
+          <ion-label>{{ info.title }}</ion-label>
+        </ion-list-header>
+
+        <div v-for="item in info.data" v-bind:key="item">
+          <a v-if="item.link" @click="() => router.push(item.link)">
+            <ion-item color="tertiary" button v-bind:class="{ 'indent': item.isSub }">
+              <ion-label>
+                {{ item.title }}
+                <p v-if="item.required">
+                  <ion-text color="medium">{{ item.required }}</ion-text>
+                </p>
+              </ion-label>
+            </ion-item>
+          </a>
+          <ion-item v-if="!item.link" color="light" lines="none" v-bind:class="{ 'indent': item.isSub }">
+            <ion-label>
+              {{ item.title }}
+              <p v-if="item.required">
+                <ion-text color="medium">{{ item.required }}</ion-text>
+              </p>
+            </ion-label>
+          </ion-item>
+        </div>
+
+      </ion-list>
+
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import { IonContent, IonPage, IonList, IonListHeader, IonItem, IonLabel, IonText } from '@ionic/vue';
 import { defineComponent } from 'vue';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
   name: 'HomePage',
   components: {
     IonContent,
-    IonHeader,
     IonPage,
-    IonTitle,
-    IonToolbar
+    IonList,
+    IonListHeader,
+    IonItem,
+    IonLabel,
+    IonText
+  },
+  setup() {
+    const router = useRouter()
+    const data: any = [{
+      title: "Template pages (Vue)",
+      data: [
+        new ListInfo("ตระกร้าสินค้า (แก้ไข)", "/cart-edit-template"),
+        new ListInfo("ตระกร้าสินค้า (จ่ายเงิน)", "/cart-checkout-template"),
+        new ListInfo("ตระกร้าสินค้า (ผลลัพธ์จ่ายเงิน) dialog", "/cart-dialog-template"),
+        new ListInfo("ฟอร์มข้อมูล", "/form-template"),
+        new ListInfo("Input แบบอื่นๆ", "/form-input-template", "", true),
+        new ListInfo("Binding data", "/form-binding", "module, ts", true),
+        new ListInfo("รับ/ส่งข้อมูล ระหว่างหน้า", "/form-send-data", "module, ts", true),
+        new ListInfo("รับ/ส่งข้อมูล ผ่าน Service", "/form-service", "module, ts, service", true),
+        new ListInfo("Confirm dialog", "/form-confirm-dialog", "module, ts", true),
+        new ListInfo("Standard Input", "/form-input", "module, scss, ts", true),
+        new ListInfo("ลิสต์รายการ", "/list-template"),
+        new ListInfo("Option dialog", "/option-dialog-template"),
+        new ListInfo("Binding data", "/option-dialog-binding", "module, ts", true),
+        new ListInfo("ไม่มีปุ่ม submit", "/option-dialog-no-submit", "module, ts", true),
+        new ListInfo("หน้าคั่น", "/condition-template", "scss"),
+        new ListInfo("หน้าคั่น (นับเวลาถอยหลัง)", "/condition-timer-template", "scss, ts", true),
+        new ListInfo("ข้อตกลง (agreement)", "/agreement-template"),
+        new ListInfo("ขอความยินยอม (consent)"),
+        new ListInfo("ข้อมูล (ผู้ใช้อนุมัติ)", "/consent-info-user-template", "", true),
+        new ListInfo("ข้อมูล (ผู้ดูแลอนุมัติ)", "/consent-info-manager-template", "", true),
+        new ListInfo("สมัครสมาชิก", "/consent-register-template", "", true),
+        new ListInfo("หน้าหลัก (home)", "/home-template", "scss, ts"),
+      ]
+    }];
+    return {
+      router,
+      data
+    }
   }
 });
+
+export class ListInfo {
+  constructor(private title: string, private link: string = "", private required: string = "", private isSub: boolean = false) { }
+}
+
 </script>
-
 <style scoped>
-#container {
-  text-align: center;
-  
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  
-  color: #8c8c8c;
-  
-  margin: 0;
-}
-
-#container a {
+a {
   text-decoration: none;
+}
+
+.indent {
+  margin-left: 2.4em !important;
 }
 </style>
