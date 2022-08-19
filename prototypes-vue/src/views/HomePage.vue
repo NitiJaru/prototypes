@@ -20,7 +20,7 @@
 
       </ion-list>
 
-      <ion-list class="ion-margin-bottom" lines="full" v-for="info in data" v-bind:key="info">
+      <!-- <ion-list class="ion-margin-bottom" lines="full" v-for="info in data" v-bind:key="info">
         <ion-list-header class="ion-padding">
           <ion-label>{{ info.title }}</ion-label>
         </ion-list-header>
@@ -45,6 +45,123 @@
             </ion-label>
           </ion-item>
         </div>
+
+      </ion-list> -->
+
+      <ion-list class="ion-margin-bottom" lines="full">
+        <ion-list-header class="ion-padding">
+          <ion-label>Flows</ion-label>
+        </ion-list-header>
+
+        <ion-item lines="none">
+          <ion-label>
+            <b>Cart</b>
+          </ion-label>
+        </ion-item>
+        <ion-item color="tertiary" button>
+          <ion-label>
+            1. Pre Catalog
+          </ion-label>
+        </ion-item>
+        <ion-item color="tertiary" button>
+          <ion-label>
+            2. Catalog
+            <ion-text color="medium">- เพิ่มสินค้าเข้าตระกร้า</ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item color="tertiary" button>
+          <ion-label>
+            3. Post Catalog
+          </ion-label>
+        </ion-item>
+        <ion-item color="tertiary" button>
+          <ion-label>
+            4. Cart Edit
+            <ion-text color="medium">- ตระกร้าสินค้า</ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item color="tertiary" button>
+          <ion-label>
+            5. Cart Confirm
+            <ion-text color="medium">- ชำระเงินตระกร้า</ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item color="tertiary" button>
+          <ion-label>
+            6. Purchase complete
+            <ion-text color="medium">- ใบเสร็จ</ion-text>
+          </ion-label>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>
+            <b>บัญชี</b>
+          </ion-label>
+        </ion-item>
+        <ion-item color="tertiary" button>
+          <ion-label>
+            1. Accounts list
+            <ion-text color="medium">- รายชื่อบัญชีทั้งหมด</ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item color="tertiary" button>
+          <ion-label>
+            2. Create Account
+            <ion-text color="medium">- เพิ่มบัญชีธนาคาร/พร้อมเพย์</ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item color="tertiary" button>
+          <ion-label>
+            2.1. Bank select
+            <ion-text color="medium">- เลือกธนาคาร</ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item color="tertiary" button>
+          <ion-label>
+            3. Confirm create account
+            <ion-text color="medium">- เลือกธนาคาร</ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item color="tertiary" button>
+          <ion-label>
+            4. Create complete
+          </ion-label>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>
+            <b>Consents</b>
+          </ion-label>
+        </ion-item>
+        <ion-item color="tertiary" button>
+          <ion-label>
+            • สมัครสมาชิก
+          </ion-label>
+        </ion-item>
+        <ion-item color="tertiary" button>
+          <ion-label>
+            •• agreement
+            <ion-text color="medium">- ข้อตกลงการสมัครสมาชิก</ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-item color="tertiary" button>
+          <ion-label>
+            • ขอข้อมูลผู้ใช้
+          </ion-label>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>
+            <b>ETC</b>
+          </ion-label>
+        </ion-item>
+        <ion-item color="tertiary" button>
+          <ion-label>
+            Home Feed
+          </ion-label>
+        </ion-item>
+
+
 
       </ion-list>
 
