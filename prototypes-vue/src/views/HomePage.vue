@@ -53,21 +53,11 @@
 </template>
 
 <script lang="ts">
-import { IonContent, IonPage, IonList, IonListHeader, IonItem, IonLabel, IonText } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { useRouter } from 'vue-router';
 
 export default defineComponent({
   name: 'HomePage',
-  components: {
-    IonContent,
-    IonPage,
-    IonList,
-    IonListHeader,
-    IonItem,
-    IonLabel,
-    IonText
-  },
   setup() {
     const router = useRouter()
     const data: any = [{

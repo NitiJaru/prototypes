@@ -264,30 +264,17 @@
 </template>
 
 <script lang="ts">
-import { IonContent, IonPage, IonList, IonItem, IonLabel, IonText, IonAvatar, IonButton, IonGrid, IonCol, IonRow, IonFabList, IonFabButton, IonFab, IonIcon, IonCard, IonCardContent } from '@ionic/vue';
+import { IonFabList, IonFabButton, IonFab, IonFooter } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { add, wallet, chatbubbleEllipsesOutline } from 'ionicons/icons';
 
 export default defineComponent({
     name: 'CartEditTemplatePage',
     components: {
-        IonContent,
-        IonPage,
-        IonList,
-        IonItem,
-        IonLabel,
-        IonText,
-        IonAvatar,
-        IonButton,
-        IonGrid,
-        IonCol,
-        IonRow,
         IonFabList,
         IonFabButton,
         IonFab,
-        IonIcon,
-        IonCard,
-        IonCardContent
+        IonFooter
     },
     setup() {
         const data: any = [{
