@@ -23,10 +23,44 @@ import '@ionic/vue/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+/* Global Components */
+import {
+  IonPage,
+  IonContent,
+  IonList,
+  IonListHeader,
+  IonItem,
+  IonAvatar,
+  IonLabel,
+  IonButton,
+  IonIcon,
+  IonText,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonCard,
+  IonCardContent,
+} from '@ionic/vue';
+
 const app = createApp(App)
   .use(IonicVue)
-  .use(router);
-  
+  .use(router)
+  .component('ion-page', IonPage)
+  .component('ion-content', IonContent)
+  .component('ion-list', IonList)
+  .component('ion-list-header', IonListHeader)
+  .component('ion-item', IonItem)
+  .component('ion-avatar', IonAvatar)
+  .component('ion-label', IonLabel)
+  .component('ion-button', IonButton)
+  .component('ion-icon', IonIcon)
+  .component('ion-text', IonText)
+  .component('ion-grid', IonGrid)
+  .component('ion-row', IonRow)
+  .component('ion-col', IonCol)
+  .component('ion-card', IonCard)
+  .component('ion-card-content', IonCardContent);
+
 router.isReady().then(() => {
   app.mount('#app');
 });
